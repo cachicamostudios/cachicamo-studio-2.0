@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.shadow-brutal {
+  box-shadow:
+    4px 4px 0 #bfc6cf,
+    8px 8px 0 #181818;
+}
+
+body {
+  background-color: #04474B;
+}
+

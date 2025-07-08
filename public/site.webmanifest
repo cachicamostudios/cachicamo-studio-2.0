@@ -1,0 +1,21 @@
+{
+  "name": "Cachicamo Studios",
+  "short_name": "Cachicamo",
+  "description": "Contenido, ideas y tecnología para un internet más creativo.",
+  "start_url": "/",
+  "background_color": "#04474B",
+  "theme_color": "#04474B",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

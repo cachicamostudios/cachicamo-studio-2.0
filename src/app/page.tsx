@@ -1,103 +1,140 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* Fondo SVG elegante */}
+      <div className="fixed inset-0 -z-10 w-full h-full overflow-hidden pointer-events-none">
+        <img src="/nnneon.svg" alt="Fondo abstracto" className="w-full h-full object-cover opacity-60" />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* CONTENIDO PRINCIPAL */}
+      <main className="min-h-screen flex flex-col items-center justify-start px-4 py-10 font-sans">
+        {/* LOGO */}
+        <img
+          src="/cachicamo-logo.png"
+          alt="Cachicamo Studios Logo"
+          className="w-28 h-28 mb-8"
+          draggable={false}
+        />
+
+        {/* NOMBRE Y TAGLINE */}
+        <h1 className="text-4xl md:text-6xl font-extrabold text-[#D4AF37] tracking-tight mb-3 text-center uppercase">
+          CACHICAMO STUDIOS
+        </h1>
+        <div className="w-full max-w-2xl text-center mb-6">
+          <p className="text-lg md:text-xl text-[#C0C0C0] mb-2">
+            contenido, ideas y tecnología para un internet más creativo.
+          </p>
+          <div className="border-b border-[#C0C0C0]/40 mx-auto w-1/2"></div>
         </div>
+
+        {/* INFO ESENCIAL EMPRESA */}
+        <div className="w-full max-w-2xl text-center mb-10">
+          <p className="text-[#C0C0C0] mb-2">
+            Agencia de creatividad, producción digital y tecnología.
+            <span className="text-[#D4AF37]"> YouTube, Web3, blogs y branding con visión global.</span>
+          </p>
+          <div className="border-b border-[#C0C0C0]/30 mx-auto w-1/3"></div>
+        </div>
+
+        {/* SERVICIOS */}
+        <div className="w-full max-w-2xl mb-10">
+          <h2 className="text-[#D4AF37] text-xl font-bold mb-3 tracking-wide text-left">
+            Servicios
+          </h2>
+          <ul>
+            <ServiceLine text="Contenido Digital y YouTube" />
+            <ServiceLine text="Web3, NFTs y nuevas tecnologías" />
+            <ServiceLine text="Blogs y medios digitales" />
+            <ServiceLine text="Branding y diseño creativo" />
+            <ServiceLine text="Consultoría e innovación tech" />
+          </ul>
+          <div className="border-b border-[#C0C0C0]/20 mt-6"></div>
+        </div>
+
+        {/* PORTFOLIO */}
+        <div className="w-full max-w-2xl mb-10">
+          <h2 className="text-[#D4AF37] text-xl font-bold mb-3 tracking-wide text-left">
+            Portfolio
+          </h2>
+          <ul className="grid md:grid-cols-2 gap-2">
+            <PortfolioLine text="El Grit Cast" url="https://elgritcast.com" />
+            <PortfolioLine text="Ñam!" url="https://ñam.com" />
+            <PortfolioLine text="3zkMC" url="https://3zkmc.com" />
+            <PortfolioLine text="El Grit Cast Legends" url="#" />
+            <PortfolioLine text="YouTube El Grit Cast" url="https://youtube.com/@elgritcast" />
+            <PortfolioLine text="YouTube 3zkMC" url="https://youtube.com/@3zkMC" />
+          </ul>
+          <div className="border-b border-[#C0C0C0]/20 mt-6"></div>
+        </div>
+
+        {/* CONTACTO CON FORMULARIO */}
+        <div className="w-full max-w-2xl text-center mb-10">
+          <h2 className="text-[#D4AF37] text-xl font-bold mb-3 tracking-wide text-left">Contacto</h2>
+          <form
+            action="https://formspree.io/f/xkgbnjpr"
+            method="POST"
+            className="flex flex-col gap-4 items-center"
+          >
+            <div className="w-full md:w-2/3 text-left">
+              <label htmlFor="email" className="block text-[#C0C0C0] text-sm mb-1 font-medium">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                className="w-full bg-transparent border-b border-[#C0C0C0]/30 text-[#C0C0C0] focus:outline-none focus:border-[#D4AF37] py-2 px-1 transition"
+                autoComplete="email"
+              />
+            </div>
+            <div className="w-full md:w-2/3 text-left">
+              <label htmlFor="message" className="block text-[#C0C0C0] text-sm mb-1 font-medium">Mensaje</label>
+              <textarea
+                name="message"
+                id="message"
+                rows={3}
+                required
+                className="w-full bg-transparent border-b border-[#C0C0C0]/30 text-[#C0C0C0] focus:outline-none focus:border-[#D4AF37] py-2 px-1 transition resize-none"
+              ></textarea>
+            </div>
+            <input type="hidden" name="_redirect" value="https://cachicamo.studio/gracias.html" />
+            <button
+              type="submit"
+              className="mt-2 bg-[#D4AF37] text-[#04474B] font-bold px-8 py-2 rounded-full shadow transition hover:bg-[#C0C0C0] hover:text-[#04474B] hover:scale-105"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+
+        {/* FOOTER */}
+        <footer className="w-full text-center text-xs text-[#C0C0C0] opacity-70 pt-8">
+          &copy; {new Date().getFullYear()} Cachicamo Studios LLC
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    </>
+  )
+}
+
+// COMPONENTES SIMPLES
+function ServiceLine({ text }: { text: string }) {
+  return (
+    <li className="text-[#C0C0C0] text-base py-2 border-b border-[#C0C0C0]/10 last:border-b-0">
+      {text}
+    </li>
+  )
+}
+
+function PortfolioLine({ text, url }: { text: string, url: string }) {
+  return (
+    <li>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#C0C0C0] hover:text-[#D4AF37] transition font-semibold text-base py-2 block border-b border-[#C0C0C0]/10 last:border-b-0"
+      >
+        {text}
+      </a>
+    </li>
+  )
 }

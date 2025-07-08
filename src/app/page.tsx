@@ -107,9 +107,42 @@ export default function Home() {
         </div>
 
         {/* FOOTER */}
-        <footer className="w-full text-center text-xs text-[#C0C0C0] opacity-70 pt-8">
+        <footer className="relative w-full text-center text-xs text-[#C0C0C0] opacity-70 pt-8 pb-4">
           &copy; {new Date().getFullYear()} Cachicamo Studios LLC
+          <div className="absolute right-4 bottom-4">
+            <a
+              href="https://mastodon.social/@cachicamostudios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-100 opacity-80 transition"
+              aria-label="Cachicamo Studios en Mastodon"
+            >
+              <img
+                src="/mastodon-icon.svg"
+                alt="Mastodon"
+                className="w-6 h-6"
+                draggable={false}
+              />
+            </a>
+          </div>
         </footer>
+        
+        {/* BOTÓN FIJO DE MASTODON */}
+<a
+  href="https://mastodon.social/@cachicamostudios"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Cachicamo Studios en Mastodon"
+  className="fixed bottom-4 right-4 bg-[#D4AF37] p-2 rounded-full shadow-lg hover:scale-105 transition z-50"
+>
+  <img
+    src="/mastodon-icon.svg"
+    alt="Mastodon"
+    className="w-6 h-6"
+    draggable={false}
+  />
+</a>
+
       </main>
     </>
   )

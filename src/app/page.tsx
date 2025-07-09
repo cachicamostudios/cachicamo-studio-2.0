@@ -115,7 +115,7 @@ export default function Home() {
         <a
           href="https://mastodon.social/@cachicamostudios"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="me noopener noreferrer"
           aria-label="Cachicamo Studios en Mastodon"
           className="fixed bottom-4 right-4 bg-[#D4AF37] p-2 rounded-full shadow-lg hover:scale-105 transition z-50"
         >

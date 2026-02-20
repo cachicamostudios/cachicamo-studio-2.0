@@ -166,7 +166,7 @@ export default function Home() {
           />
           <PortfolioRow
             title="YouTube El Grit Cast"
-            tag="youtube · video · comunidad"
+            tag="comunidad · resiliencia · grit"
             url="https://youtube.com/@elgritcast"
           />
           <PortfolioRow

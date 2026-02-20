@@ -3,10 +3,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "servicios", href: "#servicios" },
-  { label: "portfolio", href: "#portfolio" },
-  { label: "nosotros", href: "#nosotros" },
-  { label: "contacto", href: "#contacto" },
+  { label: "[servicios]", href: "#servicios" },
+  { label: "[portfolio]", href: "#portfolio" },
+  { label: "[nosotros]", href: "#nosotros" },
+  { label: "[contacto]", href: "#contacto" },
 ];
 
 export default function Home() {

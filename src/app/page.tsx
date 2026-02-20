@@ -121,6 +121,8 @@ export default function Home() {
             a proyectos que necesitan diferenciarse.
           </p>
           <p>
+            exploramos e integramos <strong>inteligencia artificial</strong>: herramientas, flujos
+            de trabajo y aplicaciones de IA para potenciar proyectos creativos y de negocio.
             y cuando los equipos necesitan dirección, ofrecemos <strong>consultoría e innovación tech</strong>:
             asesoría estratégica para escalar en lo digital sin perder el norte creativo.
           </p>
@@ -185,13 +187,14 @@ export default function Home() {
             Cachicamo Studios es un laboratorio creativo digital nacido para construir
             proyectos digitales con identidad propia. Producimos contenido,
             desarrollamos marcas y exploramos tecnología, desde YouTube y blogs
-            hasta Web3 y branding, con la convicción de que internet puede ser
+            hasta Web3, IA y branding, con la convicción de que internet puede ser
             un lugar más creativo y diverso.
           </p>
           <p>
             Trabajamos con equipos pequeños y ambiciones grandes. Creemos en la
             colaboración honesta, en las ideas que incomodan un poco, y en la
-            tecnología como herramienta al servicio de la cultura.
+            tecnología —incluida la inteligencia artificial— como herramienta
+            al servicio de la cultura.
           </p>
         </div>
       </section>

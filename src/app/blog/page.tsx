@@ -39,6 +39,7 @@ export default function BlogPage() {
       {/* CONTENIDO */}
       <main className="blog-main">
         <div className="blog-header">
+          <a href="/" className="post-back">← volver</a>
           <h1 className="section-title">blog</h1>
           <p className="section-desc">[ideas, procesos y reflexiones]</p>
         </div>

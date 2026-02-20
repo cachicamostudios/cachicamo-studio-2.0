@@ -182,7 +182,7 @@ export default function Home() {
         </div>
         <div className="about-text">
           <p>
-            Cachicamo Studios es una agencia creativa nacida para construir
+            Cachicamo Studios es un laboratorio creativo digital nacido para construir
             proyectos digitales con identidad propia. Producimos contenido,
             desarrollamos marcas y exploramos tecnología, desde YouTube y blogs
             hasta Web3 y branding, con la convicción de que internet puede ser

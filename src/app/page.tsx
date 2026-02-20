@@ -194,7 +194,7 @@ export default function Home() {
           <p>
             Trabajamos con equipos pequeños y ambiciones grandes. Creemos en la
             colaboración honesta, en las ideas que incomodan un poco, y en la
-            tecnología —incluida la inteligencia artificial— como herramienta
+            tecnología e inteligencia artificial como herramienta
             al servicio de la cultura.
           </p>
         </div>

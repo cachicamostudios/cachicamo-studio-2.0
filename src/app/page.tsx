@@ -171,7 +171,7 @@ export default function Home() {
           />
           <PortfolioRow
             title="YouTube 3zkMC"
-            tag="youtube · música · contenido"
+            tag="minecraft · create mod · technical minecraft"
             url="https://youtube.com/@3zkMC"
           />
         </ul>

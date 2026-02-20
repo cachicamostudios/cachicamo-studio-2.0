@@ -36,7 +36,7 @@ export default async function PostPage({ params }: Props) {
 
       {/* NAV */}
       <header className="nav-bar">
-        <a href="/" className="nav-logo" aria-label="Cachicamo Studios">
+        <Link href="/" className="nav-logo" aria-label="Cachicamo Studios">
           <Image
             src="/cachicamo-logo.png"
             alt="Cachicamo Studios"
@@ -46,13 +46,13 @@ export default async function PostPage({ params }: Props) {
             draggable={false}
           />
           <span className="nav-brand">cachicamo studios</span>
-        </a>
+        </Link>
         <nav className="nav-links" aria-label="Navegación principal">
-          <a href="/#servicios" className="nav-link">[servicios]</a>
-          <a href="/#portfolio" className="nav-link">[portfolio]</a>
-          <a href="/#nosotros" className="nav-link">[nosotros]</a>
-          <a href="/blog" className="nav-link">[blog]</a>
-          <a href="/#contacto" className="nav-link">[contacto]</a>
+          <Link href="/#servicios" className="nav-link">[servicios]</Link>
+          <Link href="/#portfolio" className="nav-link">[portfolio]</Link>
+          <Link href="/#nosotros" className="nav-link">[nosotros]</Link>
+          <Link href="/blog" className="nav-link">[blog]</Link>
+          <Link href="/#contacto" className="nav-link">[contacto]</Link>
         </nav>
       </header>
 

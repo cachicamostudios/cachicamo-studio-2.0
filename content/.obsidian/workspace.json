@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prueba Prueba.md",
+                "file": "blog/Prueba Prueba.md",
                 "mode": "source",
                 "source": false
               },
@@ -181,8 +181,8 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8cd0a89df4dbc11f",
+  "active": "ed2667a06bed0498",
   "lastOpenFiles": [
-    "Prueba Prueba.md"
+    "blog/Prueba Prueba.md"
   ]
 }

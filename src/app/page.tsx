@@ -149,7 +149,7 @@ export default function Home() {
           />
           <PortfolioRow
             title="3zkMC"
-            tag="música · web3 · identidad"
+            tag="minecraft · create mod · technical minecraft"
             url="https://3zkmc.com"
           />
           <PortfolioRow

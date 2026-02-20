@@ -11,14 +11,10 @@
             "id": "32885e8bd2d74682",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/Prueba de flujo.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Prueba de flujo"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/Prueba de flujo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Prueba de flujo"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/Prueba de flujo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Prueba de flujo"
+              "title": "Outgoing links"
             }
           },
           {
@@ -184,8 +178,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "32885e8bd2d74682",
+  "active": "53c04d2fb3cc1334",
   "lastOpenFiles": [
+    "content/blog/Prueba de flujo.md",
     "cachicamo studios blog/blog/Hola.md",
     "content/Prueba de flujo.md",
     "content/blog",

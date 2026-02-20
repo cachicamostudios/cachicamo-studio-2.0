@@ -186,8 +186,9 @@ export default function Home() {
           <p>
             Cachicamo Studios es un laboratorio creativo digital nacido para construir
             proyectos digitales con identidad propia. Producimos contenido,
-            desarrollamos marcas y exploramos tecnología, desde YouTube y blogs
-            hasta Web3, IA y branding, con la convicción de que internet puede ser
+            desarrollamos marcas y exploramos tecnología. Nuestro desarrollo tiene una
+            visión en la cual múltiples plataformas y formatos se destacan: YouTube,
+            blogs, Web3, IA y branding, con la convicción de que internet puede ser
             un lugar más creativo y diverso.
           </p>
           <p>

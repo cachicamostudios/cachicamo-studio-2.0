@@ -196,8 +196,8 @@ export default function Home() {
             Trabajamos con equipos pequeños y ambiciones grandes. Creemos en la
             colaboración honesta, en las ideas que incomodan un poco, y en la
             tecnología, incluida la inteligencia artificial, como herramienta
-            impulsora de procesos y flujos de trabajo que garantizan crecimiento
-            exponencial y estandarizado.
+            impulsora de procesos y flujos de trabajo que garantizan independencia,
+            escalabilidad, crecimiento exponencial y estandarización.
           </p>
         </div>
       </section>

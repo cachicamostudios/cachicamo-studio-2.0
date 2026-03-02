@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { getCalApi } from "@calcom/embed-react";
 
 const NAV_LINKS = [
   { label: "[servicios]", href: "#servicios" },
@@ -12,6 +13,17 @@ const NAV_LINKS = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("ui", {
+        theme: "dark",
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
 
   return (
     <div className="site-wrapper">
@@ -209,41 +221,23 @@ export default function Home() {
           <p className="section-desc">[cuéntanos tu proyecto]</p>
         </div>
 
-        <form
-          action="https://formspree.io/f/xkgbnjpr"
-          method="POST"
-          className="contact-form"
-        >
-          <div className="form-field">
-            <label htmlFor="email" className="form-label">email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              autoComplete="email"
-              className="form-input"
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="message" className="form-label">mensaje</label>
-            <textarea
-              name="message"
-              id="message"
-              rows={4}
-              required
-              className="form-input form-textarea"
-            />
-          </div>
-          <input
-            type="hidden"
-            name="_redirect"
-            value="https://cachicamo.studio/gracias.html"
-          />
-          <button type="submit" className="btn-primary btn-submit">
-            enviar →
+        <div className="contact-booking">
+          <p className="booking-desc">
+            ¿tienes un proyecto en mente? agendemos una llamada de 30 minutos
+            para conocernos y explorar cómo podemos ayudarte.
+          </p>
+          <button
+            data-cal-namespace="30min"
+            data-cal-link="cachicamostudios/30min"
+            data-cal-config='{"layout":"month_view"}'
+            className="btn-primary btn-submit"
+          >
+            agenda una llamada →
           </button>
-        </form>
+          <p className="booking-note">
+            [discovery call · 30 min · video]
+          </p>
+        </div>
       </section>
 
       {/* BOTÓN FLOTANTE MASTODON */}

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "gray-matter": "^4.0.3",
     "next": "15.3.8",
     "react": "^19.0.0",

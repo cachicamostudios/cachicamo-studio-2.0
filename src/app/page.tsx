@@ -232,7 +232,7 @@ export default function Home() {
             data-cal-config='{"layout":"month_view"}'
             className="btn-primary btn-submit"
           >
-            agenda una llamada →
+            Agenda una Reunión Virtual →
           </button>
           <p className="booking-note">
             [discovery call · 30 min · video]

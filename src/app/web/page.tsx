@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import QuoteForm from "./QuoteForm";
 
 const SITES = [
@@ -114,6 +115,16 @@ export default function WebPage() {
 
       {/* Formulario de presupuesto */}
       <section className="web-cta">
+        <div className="web-cta-logo-bg" aria-hidden="true">
+          <Image
+            src="/cachicamo-logo.png"
+            alt=""
+            width={480}
+            height={480}
+            className="hero-logo-ghost"
+            draggable={false}
+          />
+        </div>
         <p className="web-showcase-title">[trabajemos juntos]</p>
         <h2 className="web-cta-title">¿Tienes un proyecto en mente?</h2>
         <QuoteForm />

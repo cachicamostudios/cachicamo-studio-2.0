@@ -958,9 +958,19 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: flex-start;
   gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 .web-cta > * {
   max-width: 760px;
+}
+.web-cta-logo-bg {
+  position: absolute;
+  right: -3rem;
+  bottom: -3rem;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
 }
 .web-cta-title {
   font-size: clamp(1.5rem, 3.5vw, 2.4rem);

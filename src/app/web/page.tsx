@@ -1,4 +1,5 @@
 import Link from "next/link";
+import QuoteForm from "./QuoteForm";
 
 const SITES = [
   {
@@ -111,12 +112,11 @@ export default function WebPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Formulario de presupuesto */}
       <section className="web-cta">
-        <p>¿Tienes un proyecto en mente?</p>
-        <Link href="/#contacto" className="btn-primary">
-          hablemos
-        </Link>
+        <p className="web-showcase-title">[presupuesto]</p>
+        <h2 className="web-cta-title">¿Tienes un proyecto en mente?</h2>
+        <QuoteForm />
       </section>
     </div>
   );

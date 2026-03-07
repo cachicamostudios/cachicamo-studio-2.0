@@ -950,21 +950,104 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.4;
 }
 
-/* CTA */
+/* CTA / Formulario */
 .web-cta {
   background: var(--bg-alt);
   padding: 4rem 2rem 6rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.75rem;
+  gap: 1.5rem;
+  max-width: 760px;
 }
-.web-cta p {
+.web-cta-title {
   font-size: clamp(1.5rem, 3.5vw, 2.4rem);
   font-weight: 800;
   color: var(--ink);
   margin: 0;
   letter-spacing: -0.02em;
+}
+
+/* Form */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+.quote-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.quote-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.quote-field label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+.quote-field input,
+.quote-field select,
+.quote-field textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+.quote-field input::placeholder,
+.quote-field textarea::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+.quote-field input:focus,
+.quote-field select:focus,
+.quote-field textarea:focus {
+  border-color: var(--gold);
+}
+.quote-field select option {
+  background: var(--teal-dk);
+  color: var(--ink);
+}
+.quote-error {
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+/* Success */
+.quote-success {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.quote-success-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.quote-success-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .quote-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {

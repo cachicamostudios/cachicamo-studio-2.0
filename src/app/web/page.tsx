@@ -114,9 +114,9 @@ export default function WebPage() {
       {/* CTA */}
       <section className="web-cta">
         <p>¿Tienes un proyecto en mente?</p>
-        <a href="/#contacto" className="btn-primary">
+        <Link href="/#contacto" className="btn-primary">
           hablemos
-        </a>
+        </Link>
       </section>
     </div>
   );

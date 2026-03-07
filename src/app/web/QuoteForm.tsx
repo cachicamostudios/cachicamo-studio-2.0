@@ -111,7 +111,7 @@ export default function QuoteForm() {
       )}
 
       <button type="submit" className="btn-primary" disabled={status === "sending"}>
-        {status === "sending" ? "enviando..." : "trabajemos juntos →"}
+        {status === "sending" ? "enviando..." : "charlemos →"}
       </button>
     </form>
   );

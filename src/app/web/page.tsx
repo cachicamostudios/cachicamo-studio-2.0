@@ -114,7 +114,7 @@ export default function WebPage() {
 
       {/* Formulario de presupuesto */}
       <section className="web-cta">
-        <p className="web-showcase-title">[presupuesto]</p>
+        <p className="web-showcase-title">[trabajemos juntos]</p>
         <h2 className="web-cta-title">¿Tienes un proyecto en mente?</h2>
         <QuoteForm />
       </section>

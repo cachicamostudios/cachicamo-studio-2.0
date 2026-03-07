@@ -52,6 +52,7 @@ export default async function PostPage({ params }: Props) {
           <Link href="/#portfolio" className="nav-link">[portfolio]</Link>
           <Link href="/#nosotros" className="nav-link">[nosotros]</Link>
           <Link href="/blog" className="nav-link">[blog]</Link>
+          <Link href="/web" className="nav-link">[web]</Link>
           <Link href="/#contacto" className="nav-link">[contacto]</Link>
         </nav>
       </header>

@@ -958,6 +958,8 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: flex-start;
   gap: 1.5rem;
+}
+.web-cta > * {
   max-width: 760px;
 }
 .web-cta-title {

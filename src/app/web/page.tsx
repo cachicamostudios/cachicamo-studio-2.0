@@ -2,7 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import QuoteForm from "./QuoteForm";
 
-const SITES = [
+type Site = {
+  name: string;
+  url: string;
+  displayUrl: string;
+  description: string;
+  type: string;
+  image?: string;
+};
+
+const SITES: Site[] = [
   {
     name: "El Grit Cast",
     url: "https://elgritcast.com",
@@ -16,6 +25,7 @@ const SITES = [
     displayUrl: "app.elgritcast.com",
     description: "Enfoque y productividad",
     type: "app",
+    image: "/previews/grit-app.png",
   },
   {
     name: "3zkMC",
@@ -105,7 +115,7 @@ export default function WebPage() {
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://api.microlink.io/?url=${encodeURIComponent(site.url)}&screenshot=true&meta=false&embed=screenshot.url`}
+                  src={site.image ?? `https://api.microlink.io/?url=${encodeURIComponent(site.url)}&screenshot=true&meta=false&embed=screenshot.url`}
                   alt={`Preview de ${site.name}`}
                   loading="lazy"
                 />

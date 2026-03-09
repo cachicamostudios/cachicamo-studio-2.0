@@ -159,6 +159,11 @@ export default function Home() {
             url="https://elgritcast.com"
           />
           <PortfolioRow
+            title="Grit App"
+            tag="app · enfoque y productividad"
+            url="https://app.elgritcast.com"
+          />
+          <PortfolioRow
             title="Ñam!"
             tag="gastronomía · lifestyle · digital"
             url="https://ñam.com"

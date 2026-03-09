@@ -11,6 +11,13 @@ const SITES = [
     type: "personal",
   },
   {
+    name: "Grit App",
+    url: "https://app.elgritcast.com",
+    displayUrl: "app.elgritcast.com",
+    description: "Enfoque y productividad",
+    type: "app",
+  },
+  {
     name: "3zkMC",
     url: "https://3zkmc.com",
     displayUrl: "3zkmc.com",

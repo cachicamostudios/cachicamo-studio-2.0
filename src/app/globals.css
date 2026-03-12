@@ -1532,3 +1532,22 @@ a.ia-card:hover {
 
 /* Make web-hero relative so absolute positioning works */
 .web-hero { position: relative; }
+
+@media (max-width: 768px) {
+  .ia-float-btn {
+    width: 90px;
+    height: 90px;
+    top: 1rem;
+    right: 1rem;
+    transform: none;
+    animation: ia-float-bob-mobile 3.5s ease-in-out infinite;
+  }
+  .ia-float-label {
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes ia-float-bob-mobile {
+  0%, 100% { transform: translateY(-5px); }
+  50%       { transform: translateY(5px); }
+}

@@ -16,9 +16,31 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+
+  const url = `https://cachicamo.studio/blog/${slug}`;
+
   return {
     title: `${post.title} — cachicamo studios`,
     description: post.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url,
+      siteName: "Cachicamo Studios",
+      images: [{ url: "/cachicamo-logo.png", width: 512, height: 512, alt: post.title }],
+      type: "article",
+      publishedTime: post.date ? new Date(post.date).toISOString() : undefined,
+      tags: post.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: ["/cachicamo-logo.png"],
+    },
   };
 }
 
@@ -104,7 +126,7 @@ function mdToHtml(md: string): string {
     .map((block) => {
       const trimmed = block.trim();
       if (!trimmed) return "";
-      if (/^<(h[1-3]|ul|ol|li)/.test(trimmed)) return trimmed;
+      if (/^<(h[1-3]|ul|ol|li|img)/.test(trimmed)) return trimmed;
       return `<p>${trimmed.replace(/\n/g, "<br/>")}</p>`;
     })
     .join("\n");

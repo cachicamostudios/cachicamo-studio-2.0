@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "IA | cachicamo studios",
   description:
     "Directorio de proyectos de inteligencia artificial creados por cachicamo studios.",
+  alternates: {
+    canonical: "https://cachicamo.studio/ia",
+  },
 };
 
 const IA_PROJECTS: IaProject[] = [

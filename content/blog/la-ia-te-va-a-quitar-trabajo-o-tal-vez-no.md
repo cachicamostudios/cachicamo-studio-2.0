@@ -20,7 +20,7 @@ Las revoluciones industriales anteriores tardaron generaciones en transformar el
 
 Un operador de almacén no se convierte en analista de datos de la noche a la mañana.
 
-Eso tiene un nombre: _skills mismatch_. Y es uno de los problemas más silenciosos —y más peligrosos— de esta era.
+Eso tiene un nombre: _skills mismatch_. Y es uno de los problemas más silenciosos y más peligrosos de esta era.
 
 Pero espera. Porque la historia se complica más.
 
@@ -28,7 +28,7 @@ Pero espera. Porque la historia se complica más.
 
 Las empresas que adoptan IA reportan mejoras reales en eficiencia y rentabilidad. Eso suena bien, ¿verdad? El detalle está en a dónde va ese dinero.
 
-La automatización beneficia principalmente a los trabajadores más cualificados, los que pueden usar la IA como herramienta para multiplicar su valor. Mientras tanto, quienes hacen trabajos rutinarios —físicos o cognitivos— quedan atrapados en un callejón sin salida: sus empleos desaparecen y las alternativas requieren formación que nadie les está dando de manera masiva ni urgente.
+La automatización beneficia principalmente a los trabajadores más cualificados, los que pueden usar la IA como herramienta para multiplicar su valor. Mientras tanto, quienes hacen trabajos rutinarios, físicos o cognitivos, quedan atrapados en un callejón sin salida: sus empleos desaparecen y las alternativas requieren formación que nadie les está dando de manera masiva ni urgente.
 
 ¿El resultado? Una polarización económica que alimenta algo más que estadísticas. Alimenta rabia, desconfianza, inestabilidad política.
 
@@ -38,7 +38,7 @@ Y entonces aparece otro problema que casi nadie está mirando de frente.
 
 Google. Amazon. Facebook. Apple. Microsoft. Cinco compañías con el poder financiero suficiente para absorber a cualquier competidor que emerja y amenace su dominio. Pero no es solo un asunto de dinero y mercado. Es un asunto de acceso a la información.
 
-Los nuevos buscadores con IA —como SearchGPT o Perplexity— no te muestran resultados para que explores. Te dan una respuesta directa y cerrada. Cómodo, sí. Pero esa comodidad tiene un precio enorme: podrías dejar de visitar fuentes diversas, de contrastar perspectivas, de cuestionar lo que lees.
+Los nuevos buscadores con IA, como SearchGPT o Perplexity,  no te muestran resultados para que explores. Te dan una respuesta directa y cerrada. Cómodo, sí. Pero esa comodidad tiene un precio enorme: podrías dejar de visitar fuentes diversas, de contrastar perspectivas, de cuestionar lo que lees.
 
 Algunos estudios estiman que el tráfico hacia medios de comunicación independientes podría caer hasta un 25% por este cambio de comportamiento. Y con menos medios sostenibles, menos periodismo, menos voces distintas, las "cámaras de eco" no son una posibilidad futura: son una consecuencia lógica de lo que ya está pasando.
 
@@ -46,7 +46,7 @@ Algunos estudios estiman que el tráfico hacia medios de comunicación independi
 
 ## La solución más polémica sobre la mesa
 
-Frente a todo esto, los gobiernos están buscando respuestas. Y una de las más discutidas —y divisivas— es la Renta Básica Universal: darle a cada ciudadano un ingreso mensual, sin condiciones, haga lo que haga.
+Frente a todo esto, los gobiernos están buscando respuestas. Y una de las más discutidas y divisivas es la Renta Básica Universal: darle a cada ciudadano un ingreso mensual, sin condiciones, haga lo que haga.
 
 La idea suena radical. Y lo es. Pero cuando millones de personas podrían quedarse sin trabajo y sin red de seguridad, la pregunta ya no es si es radical, sino si es necesaria.
 

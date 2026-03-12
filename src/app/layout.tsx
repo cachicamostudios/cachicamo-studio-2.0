@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description:
     "Agencia de creatividad, producción digital y tecnología. YouTube, Web3, blogs y branding con visión global.",
   metadataBase: new URL("https://cachicamo.studio"),
+  alternates: {
+    canonical: "https://cachicamo.studio",
+  },
   openGraph: {
     title: "Cachicamo Studios",
     description:

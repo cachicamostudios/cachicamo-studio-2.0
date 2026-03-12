@@ -5,6 +5,9 @@ import { getAllPosts } from "@/lib/posts";
 export const metadata = {
   title: "blog — cachicamo studios",
   description: "Ideas, procesos y reflexiones sobre contenido digital, tecnología y creatividad.",
+  alternates: {
+    canonical: "https://cachicamo.studio/blog",
+  },
 };
 
 export default function BlogPage() {

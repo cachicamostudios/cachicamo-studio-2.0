@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import QuoteForm from "./QuoteForm";
 import IaFloatButton from "./IaFloatButton";
+
+export const metadata: Metadata = {
+  title: "Web | cachicamo studios",
+  description: "Desarrollo web profesional: sitios personales, branding y apps. Sin plantillas, solo trabajo hecho con intención.",
+  alternates: {
+    canonical: "https://cachicamo.studio/web",
+  },
+};
 
 type Site = {
   name: string;

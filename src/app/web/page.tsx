@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import QuoteForm from "./QuoteForm";
+import IaFloatButton from "./IaFloatButton";
 
 type Site = {
   name: string;
@@ -73,6 +74,7 @@ export default function WebPage() {
       <section className="web-hero">
         <span className="web-hero-tag">[web]</span>
         <h1 className="web-hero-title">desarrollo web.</h1>
+        <IaFloatButton />
       </section>
 
       {/* Manifesto */}

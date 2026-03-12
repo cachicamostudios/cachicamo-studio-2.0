@@ -1,7 +1,7 @@
 ---
 title: La IA te va a quitar el trabajo. O quizás no. Pero hay algo peor que eso.
 date: 2025-02-21
-description: Cómo la inteligencia artificial está redibujando el trabajo, el poder y lo que sabes, sin que nadie te lo haya avisado
+description: Cómo la inteligencia artificial está redibujando el trabajo, el poder y lo que sabes, sin que nadie te lo haya avisado (/blog/
 tags:
   - tag1
   - tag2

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "@vercel/speed-insights": "^2.0.0",
     "geist": "^1.7.0",
     "gray-matter": "^4.0.3",
     "next": "15.3.8",

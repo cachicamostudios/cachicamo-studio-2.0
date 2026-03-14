@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     description: "Agencia de creatividad, producción digital y tecnología.",
     images: ["/cachicamo-logo.png"],
   },
+  other: {
+    "msvalidate.01": "9C3CFFDF04A52C3D19D5C21FBAC2E67A",
+  },
 };
 
 export default function RootLayout({

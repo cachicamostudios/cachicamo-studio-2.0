@@ -23,6 +23,13 @@ type Site = {
 
 const SITES: Site[] = [
   {
+    name: "Cachicamo App",
+    url: "https://app.cachicamo.studio",
+    displayUrl: "app.cachicamo.studio",
+    description: "Workflow de pre-producción y producción",
+    type: "app",
+  },
+  {
     name: "El Grit Cast",
     url: "https://elgritcast.com",
     displayUrl: "elgritcast.com",

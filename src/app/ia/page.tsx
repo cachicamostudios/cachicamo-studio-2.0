@@ -14,6 +14,18 @@ export const metadata: Metadata = {
 
 const IA_PROJECTS: IaProject[] = [
   {
+    id: "cachicamo-app",
+    name: "app.cachicamo.studio",
+    description:
+      "Aplicación dedicada a desarrollar el workflow de pre-producción y producción de rodajes y filmaciones.",
+    category: "asistentes",
+    tags: ["Groq", "Next.js", "Supabase", "Producción"],
+    icon: "CA",
+    status: "activo",
+    url: "https://app.cachicamo.studio",
+    github: "https://github.com/cachicamostudios",
+  },
+  {
     id: "elgritcast-app",
     name: "app.elgritcast.com",
     description:

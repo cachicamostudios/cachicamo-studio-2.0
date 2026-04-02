@@ -9,7 +9,7 @@ export default function QuoteForm() {
   const [form, setForm] = useState({
     nombre: "",
     email: "",
-    tipo: "web",
+    tipo: "personal",
     descripcion: "",
   });
 
@@ -72,6 +72,17 @@ export default function QuoteForm() {
             placeholder="tu@email.com"
           />
         </div>
+      </div>
+
+      <div className="quote-field">
+        <label htmlFor="tipo">tipo de proyecto</label>
+        <select id="tipo" name="tipo" value={form.tipo} onChange={handleChange}>
+          <option value="landing">landing page</option>
+          <option value="personal">personal</option>
+          <option value="branding">branding</option>
+          <option value="profesional">profesional</option>
+          <option value="ecommerce">e-commerce</option>
+        </select>
       </div>
 
       <div className="quote-field">

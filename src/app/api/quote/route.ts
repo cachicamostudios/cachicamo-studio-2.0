@@ -7,36 +7,48 @@ const TO = process.env.RESEND_TO ?? "info@cachicamo.studio";
 
 const RATE = 45;
 
-const TIPO_LABELS: Record<string, string> = {
-  landing: "Landing Page",
-  personal: "Personal",
-  branding: "Branding",
-  profesional: "Profesional",
-  ecommerce: "E-commerce",
-};
+const PLANS = [
+  { name: "Landing Page", hours: [20, 25] as const },
+  { name: "Personal", hours: [35, 40] as const },
+  { name: "Branding", hours: [40, 48] as const },
+  { name: "Profesional", hours: [48, 55] as const },
+  { name: "E-commerce", hours: [60, 75] as const },
+];
 
-const BASE_HOURS: Record<string, [number, number]> = {
-  landing: [20, 25],
-  personal: [35, 40],
-  branding: [40, 48],
-  profesional: [48, 55],
-  ecommerce: [60, 75],
-};
+function buildPricingTable() {
+  const rows = PLANS.map((p) => {
+    const min = (p.hours[0] * RATE).toLocaleString("en-US");
+    const max = (p.hours[1] * RATE).toLocaleString("en-US");
+    return `
+      <tr>
+        <td style="padding:10px 16px;font-size:14px;color:#FFFFFF;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.06)">${p.name}</td>
+        <td style="padding:10px 16px;font-size:13px;color:#9CA3AF;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)">${p.hours[0]} – ${p.hours[1]}h</td>
+        <td style="padding:10px 16px;font-size:14px;color:#D4AF37;text-align:right;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06)">$${min} – $${max}</td>
+      </tr>`;
+  }).join("");
+
+  return `
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.1)">Tipo</td>
+        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1)">Horas</td>
+        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;text-align:right;border-bottom:1px solid rgba(255,255,255,0.1)">Precio</td>
+      </tr>
+      ${rows}
+    </table>`;
+}
 
 export async function POST(req: NextRequest) {
-  const { nombre, email, tipo, descripcion } = await req.json();
+  const { nombre, email, descripcion } = await req.json();
 
-  if (!nombre || !email || !tipo || !descripcion) {
+  if (!nombre || !email || !descripcion) {
     return NextResponse.json(
       { ok: false, error: "Faltan campos" },
       { status: 400 }
     );
   }
 
-  const tipoLabel = TIPO_LABELS[tipo] ?? tipo;
-  const [hoursMin, hoursMax] = BASE_HOURS[tipo] ?? [40, 50];
-  const priceMin = (hoursMin * RATE).toLocaleString("en-US");
-  const priceMax = (hoursMax * RATE).toLocaleString("en-US");
+  const pricingTable = buildPricingTable();
 
   // ── Folleto para el cliente ──
   const brochureHtml = `
@@ -51,7 +63,7 @@ export async function POST(req: NextRequest) {
   <!-- Header -->
   <tr><td style="background:#04474B;border-radius:12px 12px 0 0;padding:40px 40px 32px;text-align:center">
     <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.15em;color:#D4AF37;text-transform:uppercase">Cachicamo Studios</p>
-    <h1 style="margin:0;font-size:28px;font-weight:800;color:#FFFFFF;letter-spacing:-0.02em">Tu Presupuesto Web</h1>
+    <h1 style="margin:0;font-size:28px;font-weight:800;color:#FFFFFF;letter-spacing:-0.02em">Presupuesto Desarrollo Web</h1>
     <p style="margin:12px 0 0;font-size:14px;color:rgba(255,255,255,0.6)">Preparado para ${nombre}</p>
   </td></tr>
 
@@ -64,51 +76,31 @@ export async function POST(req: NextRequest) {
         Hola <strong style="color:#FFFFFF">${nombre}</strong>,
       </p>
       <p style="margin:12px 0 0;font-size:15px;color:#9CA3AF;line-height:1.7">
-        Gracias por tu interés. Hemos preparado una estimación basada en lo que nos contaste. Aquí está el desglose:
+        Gracias por tu interés. Aquí tienes nuestros precios de desarrollo web según el tipo de proyecto:
       </p>
     </div>
 
-    <!-- Project details card -->
+    <!-- Rate -->
+    <div style="margin:0 40px 16px;text-align:center">
+      <p style="margin:0;font-size:12px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Tarifa</p>
+      <p style="margin:4px 0 0;font-size:24px;font-weight:800;color:#FFFFFF">$${RATE} USD <span style="font-size:14px;font-weight:400;color:#9CA3AF">/ hora</span></p>
+    </div>
+
+    <!-- Pricing table -->
     <div style="margin:0 40px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden">
-
-      <!-- Project type -->
-      <div style="padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.06)">
-        <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Tipo de proyecto</p>
-        <p style="margin:0;font-size:16px;font-weight:700;color:#FFFFFF">${tipoLabel}</p>
-      </div>
-
-      <!-- Estimate breakdown -->
-      <div style="padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.06)">
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td style="font-size:14px;color:#9CA3AF;padding:6px 0">Horas estimadas</td>
-            <td style="font-size:14px;color:#E5E7EB;text-align:right;padding:6px 0;font-weight:600">${hoursMin} – ${hoursMax}h</td>
-          </tr>
-          <tr>
-            <td style="font-size:14px;color:#9CA3AF;padding:6px 0">Tarifa por hora</td>
-            <td style="font-size:14px;color:#E5E7EB;text-align:right;padding:6px 0;font-weight:600">$45 USD</td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Total -->
-      <div style="padding:24px;background:rgba(212,175,55,0.08);text-align:center">
-        <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.15em;color:#D4AF37;text-transform:uppercase">Presupuesto estimado</p>
-        <p style="margin:0;font-size:32px;font-weight:800;color:#D4AF37;letter-spacing:-0.02em">$${priceMin} – $${priceMax}</p>
-        <p style="margin:6px 0 0;font-size:12px;color:#9CA3AF">USD</p>
-      </div>
+      ${pricingTable}
     </div>
 
     <!-- Disclaimer -->
     <div style="padding:24px 40px 8px">
       <p style="margin:0;font-size:12px;color:#6B7280;line-height:1.6;font-style:italic">
-        * Esta es una estimación basada en la información proporcionada. El precio final se definirá tras evaluar los detalles específicos de tu proyecto en una llamada.
+        * Los precios son estimaciones basadas en la complejidad promedio de cada tipo de proyecto. El precio final se definirá tras evaluar los detalles específicos en una llamada.
       </p>
     </div>
 
     <!-- What's included -->
     <div style="padding:16px 40px 32px">
-      <p style="margin:0 0 12px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Qué incluye</p>
+      <p style="margin:0 0 12px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Todos los planes incluyen</p>
       <table cellpadding="0" cellspacing="0" style="font-size:14px;color:#D1D5DB;line-height:1.8">
         <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Diseño personalizado — sin plantillas</td></tr>
         <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Responsive (móvil, tablet, desktop)</td></tr>
@@ -152,23 +144,18 @@ export async function POST(req: NextRequest) {
       <table style="font-size:15px;border-collapse:collapse">
         <tr><td style="padding:6px 16px 6px 0;color:#888">Nombre</td><td><strong>${nombre}</strong></td></tr>
         <tr><td style="padding:6px 16px 6px 0;color:#888">Email</td><td><a href="mailto:${email}">${email}</a></td></tr>
-        <tr><td style="padding:6px 16px 6px 0;color:#888">Tipo</td><td><strong>${tipoLabel}</strong></td></tr>
-        <tr><td style="padding:6px 16px 6px 0;color:#888">Horas</td><td><strong>${hoursMin} – ${hoursMax}h</strong></td></tr>
-        <tr><td style="padding:6px 16px 6px 0;color:#888">Presupuesto</td><td style="color:#D4AF37"><strong>$${priceMin} – $${priceMax}</strong></td></tr>
       </table>
       <p style="font-size:15px;margin-top:20px"><strong>Descripción:</strong><br>${descripcion.replace(/\n/g, "<br>")}</p>
     </div>`;
 
   try {
     await Promise.all([
-      // Email al equipo
       resend.emails.send({
         from: FROM,
         to: TO,
-        subject: `[web] Presupuesto — ${tipoLabel} — ${nombre}`,
+        subject: `[web] Presupuesto — ${nombre}`,
         html: internalHtml,
       }),
-      // Folleto al cliente
       resend.emails.send({
         from: FROM,
         to: email,

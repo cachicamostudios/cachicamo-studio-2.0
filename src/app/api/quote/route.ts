@@ -5,6 +5,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.RESEND_FROM!;
 const TO = process.env.RESEND_TO ?? "info@cachicamo.studio";
 
+const RATE = 45;
+
 const TIPO_LABELS: Record<string, string> = {
   landing: "Landing Page",
   personal: "Personal",
@@ -13,9 +15,16 @@ const TIPO_LABELS: Record<string, string> = {
   ecommerce: "E-commerce",
 };
 
+const BASE_HOURS: Record<string, [number, number]> = {
+  landing: [20, 25],
+  personal: [35, 40],
+  branding: [40, 48],
+  profesional: [48, 55],
+  ecommerce: [60, 75],
+};
+
 export async function POST(req: NextRequest) {
-  const { nombre, email, tipo, descripcion, estimate } =
-    await req.json();
+  const { nombre, email, tipo, descripcion } = await req.json();
 
   if (!nombre || !email || !tipo || !descripcion) {
     return NextResponse.json(
@@ -25,8 +34,9 @@ export async function POST(req: NextRequest) {
   }
 
   const tipoLabel = TIPO_LABELS[tipo] ?? tipo;
-  const priceMin = Number(estimate.priceMin).toLocaleString("en-US");
-  const priceMax = Number(estimate.priceMax).toLocaleString("en-US");
+  const [hoursMin, hoursMax] = BASE_HOURS[tipo] ?? [40, 50];
+  const priceMin = (hoursMin * RATE).toLocaleString("en-US");
+  const priceMax = (hoursMax * RATE).toLocaleString("en-US");
 
   // ── Folleto para el cliente ──
   const brochureHtml = `
@@ -72,7 +82,7 @@ export async function POST(req: NextRequest) {
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
             <td style="font-size:14px;color:#9CA3AF;padding:6px 0">Horas estimadas</td>
-            <td style="font-size:14px;color:#E5E7EB;text-align:right;padding:6px 0;font-weight:600">${estimate.hoursMin} – ${estimate.hoursMax}h</td>
+            <td style="font-size:14px;color:#E5E7EB;text-align:right;padding:6px 0;font-weight:600">${hoursMin} – ${hoursMax}h</td>
           </tr>
           <tr>
             <td style="font-size:14px;color:#9CA3AF;padding:6px 0">Tarifa por hora</td>
@@ -143,7 +153,7 @@ export async function POST(req: NextRequest) {
         <tr><td style="padding:6px 16px 6px 0;color:#888">Nombre</td><td><strong>${nombre}</strong></td></tr>
         <tr><td style="padding:6px 16px 6px 0;color:#888">Email</td><td><a href="mailto:${email}">${email}</a></td></tr>
         <tr><td style="padding:6px 16px 6px 0;color:#888">Tipo</td><td><strong>${tipoLabel}</strong></td></tr>
-        <tr><td style="padding:6px 16px 6px 0;color:#888">Horas</td><td><strong>${estimate.hoursMin} – ${estimate.hoursMax}h</strong></td></tr>
+        <tr><td style="padding:6px 16px 6px 0;color:#888">Horas</td><td><strong>${hoursMin} – ${hoursMax}h</strong></td></tr>
         <tr><td style="padding:6px 16px 6px 0;color:#888">Presupuesto</td><td style="color:#D4AF37"><strong>$${priceMin} – $${priceMax}</strong></td></tr>
       </table>
       <p style="font-size:15px;margin-top:20px"><strong>Descripción:</strong><br>${descripcion.replace(/\n/g, "<br>")}</p>

@@ -1,18 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
-
-const RATE = 45; // $/hora
-
-const BASE_HOURS: Record<string, [number, number]> = {
-  landing: [20, 25],
-  personal: [35, 40],
-  branding: [40, 48],
-  profesional: [48, 55],
-  ecommerce: [60, 75],
-};
 
 export default function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -22,14 +12,6 @@ export default function QuoteForm() {
     tipo: "personal",
     descripcion: "",
   });
-
-  const estimate = useMemo(() => {
-    const [baseMin, baseMax] = BASE_HOURS[form.tipo] ?? [40, 50];
-    const priceMin = baseMin * RATE;
-    const priceMax = baseMax * RATE;
-
-    return { hoursMin: baseMin, hoursMax: baseMax, priceMin, priceMax };
-  }, [form.tipo]);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -44,7 +26,7 @@ export default function QuoteForm() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, estimate }),
+        body: JSON.stringify(form),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {

@@ -1,8 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
+
+const RATE = 45; // $/hora
+
+const BASE_HOURS: Record<string, [number, number]> = {
+  landing: [20, 25],
+  personal: [35, 40],
+  branding: [40, 48],
+  profesional: [48, 55],
+  ecommerce: [60, 75],
+};
 
 export default function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -12,6 +22,14 @@ export default function QuoteForm() {
     tipo: "personal",
     descripcion: "",
   });
+
+  const estimate = useMemo(() => {
+    const [baseMin, baseMax] = BASE_HOURS[form.tipo] ?? [40, 50];
+    const priceMin = baseMin * RATE;
+    const priceMax = baseMax * RATE;
+
+    return { hoursMin: baseMin, hoursMax: baseMax, priceMin, priceMax };
+  }, [form.tipo]);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -26,7 +44,7 @@ export default function QuoteForm() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, estimate }),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {
@@ -37,20 +55,10 @@ export default function QuoteForm() {
   if (status === "success") {
     return (
       <div className="quote-success">
-        <p className="quote-success-title">¡Mensaje recibido!</p>
+        <p className="quote-success-title">¡Presupuesto enviado!</p>
         <p className="quote-success-sub">
-          Te confirmamos por email. Si quieres avanzar más rápido, agenda una llamada con nosotros.
+          Revisa tu email — te enviamos el presupuesto estimado con todos los detalles de tu proyecto.
         </p>
-        <a
-          href="https://cal.com/cachicamostudios/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary"
-          data-cal-namespace="30min"
-          data-cal-link="cachicamostudios/30min"
-        >
-          agendar llamada →
-        </a>
       </div>
     );
   }
@@ -87,9 +95,11 @@ export default function QuoteForm() {
       <div className="quote-field">
         <label htmlFor="tipo">tipo de proyecto</label>
         <select id="tipo" name="tipo" value={form.tipo} onChange={handleChange}>
+          <option value="landing">landing page</option>
           <option value="personal">personal</option>
           <option value="branding">branding</option>
           <option value="profesional">profesional</option>
+          <option value="ecommerce">e-commerce</option>
         </select>
       </div>
 
@@ -111,7 +121,7 @@ export default function QuoteForm() {
       )}
 
       <button type="submit" className="btn-primary" disabled={status === "sending"}>
-        {status === "sending" ? "enviando..." : "charlemos →"}
+        {status === "sending" ? "enviando..." : "solicitar presupuesto →"}
       </button>
     </form>
   );

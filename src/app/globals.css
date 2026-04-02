@@ -1030,6 +1030,68 @@ a { color: inherit; text-decoration: none; }
   background: var(--teal-dk);
   color: var(--ink);
 }
+.quote-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.quote-chip {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 0.4rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.quote-chip:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.quote-chip.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+
+.quote-estimate {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quote-estimate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quote-estimate-label {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.quote-estimate-value {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.quote-estimate-divider {
+  border-top: 1px solid var(--line);
+  margin: 0.25rem 0;
+}
+.quote-estimate-row.total .quote-estimate-value {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
 .quote-error {
   font-size: 0.85rem;
   color: #ff6b6b;

@@ -96,6 +96,9 @@ export async function POST(req: NextRequest) {
       <p style="margin:0;font-size:12px;color:#6B7280;line-height:1.6;font-style:italic">
         * Los precios son estimaciones basadas en la complejidad promedio de cada tipo de proyecto. El precio final se definirá tras evaluar los detalles específicos en una llamada.
       </p>
+      <p style="margin:8px 0 0;font-size:13px;color:#D4AF37;line-height:1.6;font-weight:600">
+        Se requiere un adelanto del 50% para comenzar el proyecto.
+      </p>
     </div>
 
     <!-- What's included -->

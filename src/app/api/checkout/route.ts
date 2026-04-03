@@ -44,28 +44,34 @@ export async function POST(req: NextRequest) {
 
   const origin = req.headers.get("origin") ?? "https://cachicamo.studio";
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
-    customer_email: email || undefined,
-    line_items: [
-      {
-        price_data: {
-          currency: "usd",
-          product_data: {
-            name: description,
-            description: nombre
-              ? `Cliente: ${nombre}`
-              : "Cachicamo Studios — Desarrollo Web",
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      customer_email: email || undefined,
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: description,
+              description: nombre
+                ? `Cliente: ${nombre}`
+                : "Cachicamo Studios — Desarrollo Web",
+            },
+            unit_amount: amount,
           },
-          unit_amount: amount,
+          quantity: 1,
         },
-        quantity: 1,
-      },
-    ],
-    mode: "payment",
-    success_url: `${origin}/pago/confirmacion?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/pago?cancelado=true`,
-  });
+      ],
+      mode: "payment",
+      success_url: `${origin}/pago/confirmacion?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/pago?cancelado=true`,
+    });
 
-  return NextResponse.json({ url: session.url });
+    return NextResponse.json({ url: session.url });
+  } catch (err) {
+    console.error("[checkout error]", err);
+    const message = err instanceof Error ? err.message : "Error al crear sesión de pago";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

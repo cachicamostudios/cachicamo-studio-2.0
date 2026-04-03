@@ -120,6 +120,11 @@ export async function POST(req: NextRequest) {
          style="display:inline-block;background:#D4AF37;color:#000;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:0.02em">
         Agendar llamada &#8594;
       </a>
+      <p style="margin:24px 0 0;font-size:13px;color:#6B7280">o si ya acordaste un precio:</p>
+      <a href="https://cachicamo.studio/pago?email=${encodeURIComponent(email)}&nombre=${encodeURIComponent(nombre)}"
+         style="display:inline-block;margin-top:12px;background:transparent;color:#D4AF37;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(212,175,55,0.4)">
+        Realizar pago &#8594;
+      </a>
     </div>
 
   </td></tr>

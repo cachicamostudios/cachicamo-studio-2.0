@@ -28,6 +28,7 @@ const SITES: Site[] = [
     displayUrl: "app.cachicamo.studio",
     description: "Workflow de pre-producción y producción",
     type: "app",
+    image: "/previews/cachicamo-app.webp",
   },
   {
     name: "El Grit Cast",
@@ -35,6 +36,7 @@ const SITES: Site[] = [
     displayUrl: "elgritcast.com",
     description: "Podcast de Resiliencia",
     type: "personal",
+    image: "/previews/elgritcast.webp",
   },
   {
     name: "Grit App",
@@ -42,7 +44,7 @@ const SITES: Site[] = [
     displayUrl: "app.elgritcast.com",
     description: "Enfoque y productividad",
     type: "app",
-    image: "/previews/grit-app.png",
+    image: "/previews/grit-app.webp",
   },
   {
     name: "3zkMC",
@@ -50,6 +52,7 @@ const SITES: Site[] = [
     displayUrl: "3zkmc.com",
     description: "Comunidad Minecraft",
     type: "personal",
+    image: "/previews/3zkmc.webp",
   },
   {
     name: "Ñam!",
@@ -57,6 +60,7 @@ const SITES: Site[] = [
     displayUrl: "ñam.com",
     description: "Blog de gastronomía",
     type: "branding",
+    image: "/previews/nam.webp",
   },
   {
     name: "Susana Gomes",
@@ -64,6 +68,15 @@ const SITES: Site[] = [
     displayUrl: "susanagomes.xyz",
     description: "Fintech & neobancos",
     type: "personal",
+    image: "/previews/susanagomes.webp",
+  },
+  {
+    name: "Mary Carfora",
+    url: "https://marycarfora.com",
+    displayUrl: "marycarfora.com",
+    description: "Belleza, masterclass & branding",
+    type: "branding",
+    image: "/previews/marycarfora.webp",
   },
   {
     name: "Erick Vega",
@@ -71,6 +84,7 @@ const SITES: Site[] = [
     displayUrl: "erickvega.xyz",
     description: "Filmmaker & editor",
     type: "branding",
+    image: "/previews/erickvega.webp",
   },
 ];
 

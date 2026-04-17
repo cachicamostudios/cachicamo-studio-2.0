@@ -179,6 +179,11 @@ export default function Home() {
             url="https://susanagomes.xyz"
           />
           <PortfolioRow
+            title="Mary Carfora"
+            tag="belleza · masterclass · branding"
+            url="https://marycarfora.com"
+          />
+          <PortfolioRow
             title="Erick Vega"
             tag="creative consulting · filmmaking · branding"
             url="https://erickvega.xyz"
@@ -192,6 +197,11 @@ export default function Home() {
             title="YouTube 3zkMC"
             tag="minecraft · create mod · technical minecraft"
             url="https://youtube.com/@3zkMC"
+          />
+          <PortfolioRow
+            title="YouTube Mary Carfora"
+            tag="belleza · masterclass · tutoriales"
+            url="https://www.youtube.com/channel/UCWE9iNYMBdpZ6Tvm0_BrRYg"
           />
         </ul>
       </section>

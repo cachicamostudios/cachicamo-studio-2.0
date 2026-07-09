@@ -41,28 +41,16 @@ export async function POST(req: NextRequest) {
         Hola <strong style="color:#FFFFFF">${nombre}</strong>,
       </p>
       <p style="margin:12px 0 0;font-size:15px;color:#9CA3AF;line-height:1.7">
-        Gracias por tu interés. Hemos recibido los detalles de tu proyecto y nos pondremos en contacto contigo para agendar una reunión donde revisaremos tu idea y definiremos juntos el alcance y el presupuesto a medida.
+        Gracias por tu interés. Hemos recibido los datos que nos proporcionaste y pronto entraremos en contacto contigo.
       </p>
     </div>
 
-    <!-- What's included -->
-    <div style="padding:16px 40px 32px">
-      <p style="margin:0 0 12px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Todos los planes incluyen</p>
-      <table cellpadding="0" cellspacing="0" style="font-size:14px;color:#D1D5DB;line-height:1.8">
-        <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Diseño personalizado — sin plantillas</td></tr>
-        <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Responsive (móvil, tablet, desktop)</td></tr>
-        <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Optimización de rendimiento y SEO base</td></tr>
-        <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>Deploy y configuración de dominio</td></tr>
-        <tr><td style="padding:2px 10px 2px 0;color:#D4AF37">&#10003;</td><td>2 rondas de revisiones incluidas</td></tr>
-      </table>
-    </div>
-
     <!-- CTA -->
-    <div style="padding:0 40px 40px;text-align:center">
-      <p style="margin:0 0 16px;font-size:15px;color:#D1D5DB">¿Listo para empezar? Agenda una llamada de 30 min:</p>
+    <div style="padding:8px 40px 40px;text-align:center">
+      <p style="margin:0 0 16px;font-size:15px;color:#D1D5DB">Mientras tanto, puedes agendar una videollamada de 30 min:</p>
       <a href="https://cal.com/cachicamostudios/30min"
          style="display:inline-block;background:#D4AF37;color:#000;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:0.02em">
-        Agendar llamada &#8594;
+        Agendar videollamada &#8594;
       </a>
       <p style="margin:24px 0 0;font-size:13px;color:#6B7280">o si ya acordaste un precio:</p>
       <a href="https://cachicamo.studio/pago?email=${encodeURIComponent(email)}&nombre=${encodeURIComponent(nombre)}"

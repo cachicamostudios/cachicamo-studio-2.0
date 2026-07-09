@@ -31,9 +31,17 @@ function generateHalftone() {
 
 const DOTS = generateHalftone();
 
-export default function IaFloatButton() {
+export default function IaFloatButton({
+  href = "/ia",
+  label = "IA",
+  ariaLabel = "Explorar proyectos de IA",
+}: {
+  href?: string;
+  label?: string;
+  ariaLabel?: string;
+}) {
   return (
-    <Link href="/ia" className="ia-float-btn" aria-label="Explorar proyectos de IA">
+    <Link href={href} className="ia-float-btn" aria-label={ariaLabel}>
       <svg viewBox="-62 -62 124 124" className="ia-float-svg" aria-hidden="true">
         <defs>
           <filter id="dot-glow" x="-150%" y="-150%" width="400%" height="400%">
@@ -60,7 +68,7 @@ export default function IaFloatButton() {
         ))}
         </g>
       </svg>
-      <span className={`ia-float-label ${GeistPixelSquare.className}`}>IA</span>
+      <span className={`ia-float-label ${GeistPixelSquare.className}`}>{label}</span>
     </Link>
   );
 }

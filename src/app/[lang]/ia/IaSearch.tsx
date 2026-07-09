@@ -15,18 +15,30 @@ export type IaProject = {
   status?: "activo" | "beta" | "desarrollo";
 };
 
-const CATEGORIES = [
-  "todos",
-  "automatización",
-  "agentes",
-  "chat",
-  "asistentes",
-  "generación de contenido",
-];
+type StatusLabels = Record<string, string>;
 
-export default function IaSearch({ projects }: { projects: IaProject[] }) {
+export default function IaSearch({
+  projects,
+  categories,
+  statusLabels,
+  searchPlaceholder,
+  empty,
+  visitPrefix,
+  githubLabel,
+  githubAria,
+}: {
+  projects: IaProject[];
+  categories: string[];
+  statusLabels: StatusLabels;
+  searchPlaceholder: string;
+  empty: string;
+  visitPrefix: string;
+  githubLabel: string;
+  githubAria: string;
+}) {
+  const allCategory = categories[0];
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("todos");
+  const [activeCategory, setActiveCategory] = useState(allCategory);
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
@@ -36,11 +48,11 @@ export default function IaSearch({ projects }: { projects: IaProject[] }) {
         p.description.toLowerCase().includes(query.toLowerCase()) ||
         p.tags.some((t) => t.toLowerCase().includes(query.toLowerCase()));
       const matchesCategory =
-        activeCategory === "todos" ||
+        activeCategory === allCategory ||
         p.category.toLowerCase() === activeCategory.toLowerCase();
       return matchesQuery && matchesCategory;
     });
-  }, [projects, query, activeCategory]);
+  }, [projects, query, activeCategory, allCategory]);
 
   return (
     <div className="ia-search-container">
@@ -53,13 +65,13 @@ export default function IaSearch({ projects }: { projects: IaProject[] }) {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="buscar proyectos de ia..."
+          placeholder={searchPlaceholder}
           className="ia-search-input"
         />
       </div>
 
       <div className="ia-filters">
-        {CATEGORIES.map((cat) => (
+        {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
@@ -71,11 +83,18 @@ export default function IaSearch({ projects }: { projects: IaProject[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="ia-empty">no hay proyectos que coincidan con tu búsqueda.</p>
+        <p className="ia-empty">{empty}</p>
       ) : (
         <div className="ia-grid">
           {filtered.map((project) => (
-            <IaCard key={project.id} project={project} />
+            <IaCard
+              key={project.id}
+              project={project}
+              statusLabels={statusLabels}
+              visitPrefix={visitPrefix}
+              githubLabel={githubLabel}
+              githubAria={githubAria}
+            />
           ))}
         </div>
       )}
@@ -100,7 +119,19 @@ function ExtIcon() {
   );
 }
 
-function IaCard({ project }: { project: IaProject }) {
+function IaCard({
+  project,
+  statusLabels,
+  visitPrefix,
+  githubLabel,
+  githubAria,
+}: {
+  project: IaProject;
+  statusLabels: StatusLabels;
+  visitPrefix: string;
+  githubLabel: string;
+  githubAria: string;
+}) {
   return (
     <div className="ia-card">
       <div className="ia-card-top">
@@ -111,7 +142,7 @@ function IaCard({ project }: { project: IaProject }) {
             target="_blank"
             rel="noopener noreferrer"
             className="ia-card-ext-link"
-            aria-label={`Visitar ${project.name}`}
+            aria-label={`${visitPrefix}${project.name}`}
           >
             <ExtIcon />
           </a>
@@ -123,7 +154,7 @@ function IaCard({ project }: { project: IaProject }) {
           <span className="ia-card-category">{project.category}</span>
           {project.status && (
             <span className={`ia-card-status ia-card-status--${project.status}`}>
-              {project.status}
+              {statusLabels[project.status] ?? project.status}
             </span>
           )}
         </div>
@@ -144,10 +175,10 @@ function IaCard({ project }: { project: IaProject }) {
               target="_blank"
               rel="noopener noreferrer"
               className="ia-github-badge"
-              aria-label="Ver en GitHub"
+              aria-label={githubAria}
             >
               <GitHubIcon />
-              github
+              {githubLabel}
             </a>
           )}
           {project.metrics !== undefined && (

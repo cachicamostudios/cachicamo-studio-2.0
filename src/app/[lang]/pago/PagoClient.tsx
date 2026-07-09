@@ -1,8 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import type { Dictionary } from "@/get-dictionary";
 
 const PLANS: Record<string, { name: string; hours: [number, number]; rate: number }> = {
   landing:      { name: "Landing Page", hours: [20, 25], rate: 45 },
@@ -12,7 +13,13 @@ const PLANS: Record<string, { name: string; hours: [number, number]; rate: numbe
   ecommerce:    { name: "E-commerce",   hours: [60, 75], rate: 45 },
 };
 
-function PagoContent() {
+export default function PagoClient({
+  dict,
+  home,
+}: {
+  dict: Dictionary["pago"];
+  home: string;
+}) {
   const params = useSearchParams();
   const planKey = params.get("plan");
   const email = params.get("email") ?? "";
@@ -20,6 +27,10 @@ function PagoContent() {
   const cancelado = params.get("cancelado");
 
   const plan = planKey ? PLANS[planKey] : null;
+  const planName =
+    (planKey && dict.planNames[planKey as keyof typeof dict.planNames]) ||
+    plan?.name ||
+    "";
 
   const [montoCustom, setMontoCustom] = useState("");
   const [loading, setLoading] = useState(false);
@@ -40,7 +51,7 @@ function PagoContent() {
     } else if (montoCustom && Number(montoCustom) > 0) {
       body.monto = Number(montoCustom);
     } else {
-      setError("Indica un monto o selecciona un plan.");
+      setError(dict.errorAmount);
       setLoading(false);
       return;
     }
@@ -58,7 +69,7 @@ function PagoContent() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      setError(data.error ?? "Error al crear la sesión de pago.");
+      setError(data.error ?? dict.errorSession);
       setLoading(false);
     }
   }
@@ -68,7 +79,7 @@ function PagoContent() {
     <div className="dot-grid" aria-hidden />
     <div className="site-wrapper" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem 1rem" }}>
 
-      <Link href="/" style={{ marginBottom: "2rem", fontSize: "12px", letterSpacing: "0.15em", color: "var(--gold)", textTransform: "uppercase" as const }}>
+      <Link href={home} style={{ marginBottom: "2rem", fontSize: "12px", letterSpacing: "0.15em", color: "var(--gold)", textTransform: "uppercase" as const }}>
         Cachicamo Studios
       </Link>
 
@@ -82,21 +93,21 @@ function PagoContent() {
       }}>
 
         <h1 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.5rem", textAlign: "center" }}>
-          Pago de Servicios
+          {dict.title}
         </h1>
         <p style={{ color: "var(--muted)", fontSize: "0.875rem", textAlign: "center", marginBottom: "2rem" }}>
-          Completa tu pago de forma segura con Stripe
+          {dict.subtitle}
         </p>
 
         {cancelado && (
           <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "8px", padding: "12px 16px", marginBottom: "1.5rem", fontSize: "0.875rem", color: "#fca5a5" }}>
-            Pago cancelado. Puedes intentarlo de nuevo.
+            {dict.canceled}
           </div>
         )}
 
         {nombre && (
           <p style={{ fontSize: "0.875rem", color: "var(--muted)", marginBottom: "1rem" }}>
-            Cliente: <strong style={{ color: "var(--ink)" }}>{nombre}</strong>
+            {dict.clientLabel} <strong style={{ color: "var(--ink)" }}>{nombre}</strong>
           </p>
         )}
 
@@ -110,15 +121,15 @@ function PagoContent() {
               marginBottom: "1.5rem",
             }}>
               <p style={{ fontSize: "0.75rem", letterSpacing: "0.1em", color: "var(--gold)", textTransform: "uppercase" as const, marginBottom: "0.5rem" }}>
-                Plan seleccionado
+                {dict.planSelected}
               </p>
-              <p style={{ fontSize: "1.25rem", fontWeight: 700 }}>{plan.name}</p>
+              <p style={{ fontSize: "1.25rem", fontWeight: 700 }}>{planName}</p>
               <p style={{ fontSize: "0.875rem", color: "var(--muted)", marginTop: "0.25rem" }}>
-                {plan.hours[0]}–{plan.hours[1]} horas &middot; ${plan.hours[0] * plan.rate}–${plan.hours[1] * plan.rate} USD
+                {plan.hours[0]}–{plan.hours[1]} {dict.hoursUnit} &middot; ${plan.hours[0] * plan.rate}–${plan.hours[1] * plan.rate} USD
               </p>
               <div style={{ borderTop: "1px solid var(--line)", marginTop: "1rem", paddingTop: "1rem" }}>
                 <p style={{ fontSize: "0.75rem", color: "var(--gold)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>
-                  Deposito 50%
+                  {dict.deposit}
                 </p>
                 <p style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--gold)" }}>
                   ${depositMin.toLocaleString()}–${depositMax.toLocaleString()} USD
@@ -142,13 +153,13 @@ function PagoContent() {
                 letterSpacing: "0.02em",
               }}
             >
-              {loading ? "Redirigiendo a Stripe..." : `Pagar depósito $${depositMin.toLocaleString()} USD`}
+              {loading ? dict.redirecting : `${dict.payDeposit} $${depositMin.toLocaleString()} USD`}
             </button>
           </>
         ) : (
           <>
             <label style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.875rem", color: "var(--muted)" }}>
-              Monto a pagar (USD)
+              {dict.amountLabel}
             </label>
             <div style={{ display: "flex", gap: "0.75rem", marginBottom: "1.5rem" }}>
               <input
@@ -190,7 +201,7 @@ function PagoContent() {
                 opacity: !montoCustom ? 0.5 : 1,
               }}
             >
-              {loading ? "Redirigiendo a Stripe..." : "Pagar ahora"}
+              {loading ? dict.redirecting : dict.payNow}
             </button>
           </>
         )}
@@ -203,24 +214,16 @@ function PagoContent() {
 
         <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
           <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
-            Pago procesado de forma segura por Stripe.
-            <br />Tus datos financieros nunca pasan por nuestros servidores.
+            {dict.secure1}
+            <br />{dict.secure2}
           </p>
         </div>
       </div>
 
-      <Link href="/" style={{ marginTop: "2rem", fontSize: "0.875rem", color: "var(--muted)" }}>
-        &larr; Volver a cachicamo.studio
+      <Link href={home} style={{ marginTop: "2rem", fontSize: "0.875rem", color: "var(--muted)" }}>
+        {dict.back}
       </Link>
     </div>
     </>
-  );
-}
-
-export default function PagoPage() {
-  return (
-    <Suspense>
-      <PagoContent />
-    </Suspense>
   );
 }

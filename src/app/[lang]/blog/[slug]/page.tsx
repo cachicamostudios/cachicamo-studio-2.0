@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { getDictionary } from "@/get-dictionary";
+import { i18n, type Locale } from "@/i18n-config";
+
+const SITE_URL = "https://cachicamo.studio";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: Locale; slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -12,12 +17,12 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  const url = `https://cachicamo.studio/blog/${slug}`;
+  const url = `${SITE_URL}/blog/${slug}`;
 
   return {
     title: `${post.title} — cachicamo studios`,
@@ -45,9 +50,14 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const dict = await getDictionary(lang);
+  const nav = dict.home.nav;
+  const prefix = lang === i18n.defaultLocale ? "" : `/${lang}`;
+  const home = prefix || "/";
 
   // Convertir markdown básico a HTML (sin dependencias extra)
   const html = mdToHtml(post.content);
@@ -58,7 +68,7 @@ export default async function PostPage({ params }: Props) {
 
       {/* NAV */}
       <header className="nav-bar">
-        <Link href="/" className="nav-logo" aria-label="Cachicamo Studios">
+        <Link href={home} className="nav-logo" aria-label="Cachicamo Studios">
           <Image
             src="/cachicamo-logo.png"
             alt="Cachicamo Studios"
@@ -69,21 +79,21 @@ export default async function PostPage({ params }: Props) {
           />
           <span className="nav-brand">cachicamo studios</span>
         </Link>
-        <nav className="nav-links" aria-label="Navegación principal">
-          <Link href="/#servicios" className="nav-link">[servicios]</Link>
-          <Link href="/#portfolio" className="nav-link">[portfolio]</Link>
-          <Link href="/#nosotros" className="nav-link">[nosotros]</Link>
-          <Link href="/blog" className="nav-link">[blog]</Link>
-          <Link href="/web" className="nav-link">[web]</Link>
-          <Link href="/#contacto" className="nav-link">[contacto]</Link>
+        <nav className="nav-links" aria-label={nav.ariaNav}>
+          <Link href={`${prefix}/#servicios`} className="nav-link">{nav.services}</Link>
+          <Link href={`${prefix}/#portfolio`} className="nav-link">{nav.portfolio}</Link>
+          <Link href={`${prefix}/#nosotros`} className="nav-link">{nav.about}</Link>
+          <Link href={`${prefix}/blog`} className="nav-link">{nav.blog}</Link>
+          <Link href={`${prefix}/web`} className="nav-link">{nav.web}</Link>
+          <Link href={`${prefix}/#contacto`} className="nav-link">{nav.contact}</Link>
         </nav>
       </header>
 
       {/* ARTÍCULO */}
       <main className="post-main">
         <div className="post-meta">
-          <Link href="/blog" className="post-back">← blog</Link>
-          {post.date && <span className="blog-row-date">{formatDate(post.date)}</span>}
+          <Link href={`${prefix}/blog`} className="post-back">{dict.blog.backToBlog}</Link>
+          {post.date && <span className="blog-row-date">{formatDate(post.date, lang)}</span>}
         </div>
 
         <h1 className="post-title">{post.title}</h1>
@@ -105,10 +115,14 @@ export default async function PostPage({ params }: Props) {
   );
 }
 
-function formatDate(dateStr: string): string {
+function formatDate(dateStr: string, lang: Locale): string {
   if (!dateStr) return "";
   const d = new Date(dateStr);
-  return d.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
+  return d.toLocaleDateString(lang === "en" ? "en-US" : "es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 // Parser de markdown básico (headings, bold, italic, párrafos, listas)

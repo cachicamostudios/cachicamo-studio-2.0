@@ -1,8 +1,26 @@
-// src/app/not-found.tsx
 import Link from "next/link";
 import Image from "next/image";
+import { headers } from "next/headers";
 
-export default function NotFound() {
+const STRINGS = {
+  es: {
+    title: "404: Página no encontrada",
+    body: "Tal vez esta idea aún no ha sido producida... o quizás el cachicamo la enrolló y se la llevó.",
+    back: "Volver al inicio",
+  },
+  en: {
+    title: "404: Page not found",
+    body: "Maybe this idea hasn't been produced yet... or maybe the cachicamo rolled it up and carried it off.",
+    back: "Back to home",
+  },
+};
+
+export default async function NotFound() {
+  const h = await headers();
+  const isEn = h.get("x-locale") === "en";
+  const t = isEn ? STRINGS.en : STRINGS.es;
+  const home = isEn ? "/en" : "/";
+
   return (
     <main
       style={{
@@ -25,13 +43,13 @@ export default function NotFound() {
         style={{ marginBottom: "2rem", opacity: 0.8 }}
       />
       <h1 style={{ fontSize: "3rem", color: "#D4AF37", marginBottom: "1rem" }}>
-        404: Página no encontrada
+        {t.title}
       </h1>
       <p style={{ fontSize: "1.2rem", maxWidth: "500px", marginBottom: "2rem" }}>
-        Tal vez esta idea aún no ha sido producida... o quizás el cachicamo la enrolló y se la llevó.
+        {t.body}
       </p>
       <Link
-        href="/"
+        href={home}
         style={{
           backgroundColor: "#D4AF37",
           color: "#04474B",
@@ -39,12 +57,10 @@ export default function NotFound() {
           textDecoration: "none",
           borderRadius: "4px",
           fontWeight: "bold",
-          transition: "background-color 0.3s ease",
         }}
       >
-        Volver al inicio
+        {t.back}
       </Link>
     </main>
   );
 }
-

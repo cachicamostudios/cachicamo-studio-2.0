@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "site": {
+      "title": "Cachicamo Studios – Content, Ideas & Technology",
+      "description": "A creative studio for digital production and technology. YouTube, Web3, blogs and branding with a global vision."
+    }
+  },
+  "home": {
+    "nav": {
+      "services": "[services]",
+      "portfolio": "[portfolio]",
+      "about": "[about]",
+      "blog": "[blog]",
+      "web": "[web]",
+      "contact": "[contact]",
+      "ariaNav": "Main navigation",
+      "ariaMenu": "Menu"
+    },
+    "hero": {
+      "subLine1": "content, ideas and technology",
+      "subLine2": "for a more creative internet.",
+      "ctaPortfolio": "view portfolio ↗",
+      "ctaContact": "let's talk"
+    },
+    "services": {
+      "title": "services",
+      "desc": "[what we build and produce]",
+      "p1": "we make <strong>digital content and YouTube</strong>: video production, channel strategy and editing for creators and brands that want to build real audiences. we also work in <strong>Web3, NFTs and emerging technologies</strong>, from consulting to producing projects across blockchain and the digital economy.",
+      "p2": "we create and run <strong>blogs and digital media</strong>: newsletters, communities and publications with a voice of their own. we design <strong>visual identity and branding</strong> with a global vision: design systems, brand communication and creativity applied to projects that need to stand out.",
+      "p3": "we explore and integrate <strong>artificial intelligence</strong>: AI tools, workflows and applications to power creative and business projects. and when teams need direction, we offer <strong>tech consulting and innovation</strong>: strategic guidance to scale in digital without losing the creative compass."
+    },
+    "portfolio": {
+      "title": "portfolio",
+      "desc": "[projects we have created]",
+      "items": [
+        { "title": "El Grit Cast", "tag": "podcast · content · media", "url": "https://elgritcast.com" },
+        { "title": "Grit App", "tag": "app · focus and productivity", "url": "https://app.elgritcast.com" },
+        { "title": "Ñam!", "tag": "food · lifestyle · digital", "url": "https://ñam.com" },
+        { "title": "3zkMC", "tag": "minecraft · create mod · technical minecraft", "url": "https://3zkmc.com" },
+        { "title": "Susana Gomes", "tag": "fintech · neobanks · identity", "url": "https://susanagomes.xyz" },
+        { "title": "Mary Carfora", "tag": "beauty · masterclass · branding", "url": "https://marycarfora.com" },
+        { "title": "Erick Vega", "tag": "creative consulting · filmmaking · branding", "url": "https://erickvega.xyz" },
+        { "title": "YouTube El Grit Cast", "tag": "community · resilience · grit", "url": "https://youtube.com/@elgritcast" },
+        { "title": "YouTube 3zkMC", "tag": "minecraft · create mod · technical minecraft", "url": "https://youtube.com/@3zkMC" },
+        { "title": "YouTube Mary Carfora", "tag": "beauty · masterclass · tutorials", "url": "https://www.youtube.com/channel/UCWE9iNYMBdpZ6Tvm0_BrRYg" }
+      ]
+    },
+    "about": {
+      "title": "about",
+      "p1": "Cachicamo Studios is a digital creative lab born to build digital projects with an identity of their own. We produce content, develop brands and explore technology. Our work spans multiple platforms and formats: YouTube, blogs, Web3, AI and branding, driven by the conviction that the internet can be a more creative and diverse place.",
+      "p2": "We work with small teams and big ambitions. We believe in honest collaboration, in ideas that push a little, and in technology — including artificial intelligence — as a tool to drive processes and workflows that ensure independence, scalability, exponential growth and standardization."
+    },
+    "contact": {
+      "title": "contact",
+      "desc": "[tell us about your project]",
+      "bookingDesc": "have a project in mind? let's schedule a 30-minute call to get to know each other and explore how we can help.",
+      "bookingCta": "Book a Video Meeting →",
+      "bookingNote": "[discovery call · 30 min · video]"
+    }
+  },
+  "web": {
+    "metaTitle": "Web | cachicamo studios",
+    "metaDescription": "Professional web development: personal sites, branding and apps. No templates, just work made with intention.",
+    "back": "← cachicamo studios",
+    "heroTag": "[web]",
+    "heroTitle": "web development.",
+    "iaAria": "Explore AI projects",
+    "iaLabel": "AI",
+    "manifestoLabel": "[manifesto]",
+    "manifesto": [
+      "A website isn't just a URL.",
+      "It's your presence. Your statement. The space that represents you online.",
+      "Personal, branding and professional sites. No templates. No shortcuts. Just work made with intention."
+    ],
+    "showcaseTitle": "[our work]",
+    "previewAltPrefix": "Preview of ",
+    "ctaLabel": "[let's work together]",
+    "ctaTitle": "Have a project in mind?",
+    "sites": [
+      { "name": "Cachicamo App", "url": "https://app.cachicamo.studio", "displayUrl": "app.cachicamo.studio", "description": "Pre-production and production workflow", "type": "app", "image": "/previews/cachicamo-app.webp" },
+      { "name": "El Grit Cast", "url": "https://elgritcast.com", "displayUrl": "elgritcast.com", "description": "Resilience podcast", "type": "personal", "image": "/previews/elgritcast.webp" },
+      { "name": "Grit App", "url": "https://app.elgritcast.com", "displayUrl": "app.elgritcast.com", "description": "Focus and productivity", "type": "app", "image": "/previews/grit-app.webp" },
+      { "name": "3zkMC", "url": "https://3zkmc.com", "displayUrl": "3zkmc.com", "description": "Minecraft community", "type": "personal", "image": "/previews/3zkmc.webp" },
+      { "name": "Ñam!", "url": "https://xn--am-yja.com", "displayUrl": "ñam.com", "description": "Food blog", "type": "branding", "image": "/previews/nam.webp" },
+      { "name": "Susana Gomes", "url": "https://susanagomes.xyz", "displayUrl": "susanagomes.xyz", "description": "Fintech & neobanks", "type": "personal", "image": "/previews/susanagomes.webp" },
+      { "name": "Mary Carfora", "url": "https://marycarfora.com", "displayUrl": "marycarfora.com", "description": "Beauty, masterclass & branding", "type": "branding", "image": "/previews/marycarfora.webp" },
+      { "name": "Erick Vega", "url": "https://erickvega.xyz", "displayUrl": "erickvega.xyz", "description": "Filmmaker & editor", "type": "branding", "image": "/previews/erickvega.webp" }
+    ]
+  },
+  "form": {
+    "successTitle": "Request sent!",
+    "successSub": "Check your email — we received your project details and will get in touch to schedule a meeting.",
+    "nombreLabel": "name",
+    "nombrePlaceholder": "Your name",
+    "emailLabel": "email",
+    "emailPlaceholder": "you@email.com",
+    "servicioLabel": "service",
+    "servicioOption": "web development",
+    "descripcionLabel": "tell us about your project",
+    "descripcionPlaceholder": "What do you have in mind?",
+    "error": "Something went wrong. Please try again.",
+    "sending": "sending...",
+    "submit": "request a quote →"
+  },
+  "ia": {
+    "metaTitle": "AI | cachicamo studios",
+    "metaDescription": "A directory of artificial intelligence projects built by cachicamo studios.",
+    "back": "← cachicamo studios",
+    "badgeProjects": "projects",
+    "badgeUpdated": "updated now",
+    "titleLine1": "find the best",
+    "titleLine2": "ai projects.",
+    "sub": "A directory of artificial intelligence projects built at cachicamo studios to connect people with tools that actually work.",
+    "searchPlaceholder": "search ai projects...",
+    "empty": "no projects match your search.",
+    "categories": ["all", "automation", "agents", "chat", "assistants", "content generation"],
+    "statusLabels": { "activo": "active", "beta": "beta", "desarrollo": "in development" },
+    "visitPrefix": "Visit ",
+    "githubLabel": "github",
+    "githubAria": "View on GitHub",
+    "projects": [
+      { "id": "cachicamo-app", "name": "app.cachicamo.studio", "description": "App dedicated to building the pre-production and production workflow for shoots and filming.", "category": "assistants", "tags": ["Groq", "Next.js", "Supabase", "Production"], "icon": "CA", "status": "activo", "url": "https://app.cachicamo.studio", "github": "https://github.com/cachicamostudios" },
+      { "id": "elgritcast-app", "name": "app.elgritcast.com", "description": "AI motivational coach trained on El Grit Cast content. Real-time conversations about resilience, mindset and entrepreneurship.", "category": "chat", "tags": ["Claude", "RAG", "Podcast", "Motivation"], "metrics": 1240, "icon": "EG", "status": "activo", "url": "https://app.elgritcast.com", "github": "https://github.com/cachicamostudios" },
+      { "id": "fintech-bot", "name": "Fintech Bot", "description": "Bot that automatically generates and publishes posts on Mastodon. AI-driven financial content curation and hands-off distribution.", "category": "automation", "tags": ["Mastodon", "Telegram", "Ollama", "Python"], "icon": "FB", "status": "activo" },
+      { "id": "neuro-bot", "name": "Neuro Bot", "description": "Bot that automatically posts content about neuroscience applied to grit on Mastodon. Habits, resilience and mindset backed by science.", "category": "automation", "tags": ["Mastodon", "Telegram", "Ollama", "Neuroscience"], "icon": "NR", "status": "activo" },
+      { "id": "ia-pets-project", "name": "IA Pets", "description": "Desktop pets with built-in AI. Virtual pets on your desktop that act as conversational assistants, with their own personality and contextual memory.", "category": "assistants", "tags": ["Ollama", "Desktop", "Electron"], "icon": "IP", "status": "desarrollo" },
+      { "id": "fintech-news-agent", "name": "Fintech News Agent", "description": "Local agent that automatically finds and curates financial news and posts it to Telegram. Runs on a MacBook Air with Groq for ultra-light inference.", "category": "agents", "tags": ["Groq", "Telegram", "Python", "Local"], "icon": "FN", "status": "activo" },
+      { "id": "nam-bot", "name": "Ñam Bot", "description": "Local agent that finds food news and events and posts them to Telegram. Runs on a MacBook Air with Groq for ultra-light inference.", "category": "agents", "tags": ["Groq", "Telegram", "Python", "Local"], "icon": "ÑB", "status": "activo" },
+      { "id": "3zkmc-agent", "name": "3zkMC Minecraft Updates", "description": "Local agent that tracks Minecraft news and updates — the best-selling game of all time — and posts them automatically to Telegram via Groq.", "category": "agents", "tags": ["Groq", "Telegram", "Python", "Local"], "icon": "MC", "status": "activo" },
+      { "id": "remotion-videos", "name": "Motion Graphics Generator", "description": "Remotion pipeline that generates motion graphics for YouTube: animated mind maps and emphasis phrases for the 3zkMC and Susana Resiste channels.", "category": "content generation", "tags": ["Remotion", "React", "YouTube"], "icon": "MG", "status": "activo" },
+      { "id": "grit-cast-news", "name": "El Grit Cast News", "description": "Local agent that tracks scientific research and news about grit, resilience and growth mindset. Posts daily updates to Telegram via Groq.", "category": "agents", "tags": ["Groq", "Telegram", "Python", "Local"], "icon": "GN", "status": "activo" }
+    ]
+  },
+  "blog": {
+    "metaTitle": "blog — cachicamo studios",
+    "metaDescription": "Ideas, processes and reflections on digital content, technology and creativity.",
+    "title": "blog",
+    "desc": "[ideas, processes and reflections]",
+    "back": "← back",
+    "empty": "coming soon...",
+    "backToBlog": "← blog"
+  },
+  "pago": {
+    "metaTitle": "Payment | Cachicamo Studios",
+    "title": "Service Payment",
+    "subtitle": "Complete your payment securely with Stripe",
+    "canceled": "Payment canceled. You can try again.",
+    "clientLabel": "Client:",
+    "planSelected": "Selected plan",
+    "hoursUnit": "hours",
+    "deposit": "50% deposit",
+    "payDeposit": "Pay deposit",
+    "redirecting": "Redirecting to Stripe...",
+    "amountLabel": "Amount to pay (USD)",
+    "payNow": "Pay now",
+    "errorAmount": "Enter an amount or select a plan.",
+    "errorSession": "Could not create the payment session.",
+    "secure1": "Payment processed securely by Stripe.",
+    "secure2": "Your financial data never passes through our servers.",
+    "back": "← Back to cachicamo.studio",
+    "planNames": { "landing": "Landing Page", "personal": "Personal", "branding": "Branding", "profesional": "Professional", "ecommerce": "E-commerce" }
+  },
+  "confirmacion": {
+    "metaTitle": "Payment confirmed | Cachicamo Studios",
+    "title": "Payment received",
+    "body1": "Thank you for your trust. We have received your payment successfully.",
+    "body2": "We'll send you a confirmation email with the next steps.",
+    "nextTitle": "Next steps:",
+    "nextBody": "Our team will get in touch with you within the next 24 hours to start the project.",
+    "back": "Back to home"
+  },
+  "notFound": {
+    "title": "404: Page not found",
+    "body": "Maybe this idea hasn't been produced yet... or maybe the cachicamo rolled it up and carried it off.",
+    "back": "Back to home"
+  }
+}

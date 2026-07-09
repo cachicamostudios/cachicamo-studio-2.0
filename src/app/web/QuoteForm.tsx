@@ -37,9 +37,9 @@ export default function QuoteForm() {
   if (status === "success") {
     return (
       <div className="quote-success">
-        <p className="quote-success-title">¡Presupuesto enviado!</p>
+        <p className="quote-success-title">¡Solicitud enviada!</p>
         <p className="quote-success-sub">
-          Revisa tu email — te enviamos el presupuesto estimado con todos los detalles de tu proyecto.
+          Revisa tu email — recibimos los detalles de tu proyecto y nos pondremos en contacto contigo para agendar una reunión.
         </p>
       </div>
     );

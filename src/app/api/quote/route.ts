@@ -5,39 +5,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.RESEND_FROM!;
 const TO = process.env.RESEND_TO ?? "info@cachicamo.studio";
 
-const RATE = 45;
-
-const PLANS = [
-  { name: "Landing Page", hours: [20, 25] as const },
-  { name: "Personal", hours: [35, 40] as const },
-  { name: "Branding", hours: [40, 48] as const },
-  { name: "Profesional", hours: [48, 55] as const },
-  { name: "E-commerce", hours: [60, 75] as const },
-];
-
-function buildPricingTable() {
-  const rows = PLANS.map((p) => {
-    const min = (p.hours[0] * RATE).toLocaleString("en-US");
-    const max = (p.hours[1] * RATE).toLocaleString("en-US");
-    return `
-      <tr>
-        <td style="padding:10px 16px;font-size:14px;color:#FFFFFF;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.06)">${p.name}</td>
-        <td style="padding:10px 16px;font-size:13px;color:#9CA3AF;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)">${p.hours[0]} – ${p.hours[1]}h</td>
-        <td style="padding:10px 16px;font-size:14px;color:#D4AF37;text-align:right;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06)">$${min} – $${max}</td>
-      </tr>`;
-  }).join("");
-
-  return `
-    <table width="100%" cellpadding="0" cellspacing="0">
-      <tr>
-        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.1)">Tipo</td>
-        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1)">Horas</td>
-        <td style="padding:10px 16px;font-size:11px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase;text-align:right;border-bottom:1px solid rgba(255,255,255,0.1)">Precio</td>
-      </tr>
-      ${rows}
-    </table>`;
-}
-
 export async function POST(req: NextRequest) {
   const { nombre, email, descripcion } = await req.json();
 
@@ -47,8 +14,6 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
   }
-
-  const pricingTable = buildPricingTable();
 
   // ── Folleto para el cliente ──
   const brochureHtml = `
@@ -63,8 +28,8 @@ export async function POST(req: NextRequest) {
   <!-- Header -->
   <tr><td style="background:#04474B;border-radius:12px 12px 0 0;padding:40px 40px 32px;text-align:center">
     <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.15em;color:#D4AF37;text-transform:uppercase">Cachicamo Studios</p>
-    <h1 style="margin:0;font-size:28px;font-weight:800;color:#FFFFFF;letter-spacing:-0.02em">Presupuesto Desarrollo Web</h1>
-    <p style="margin:12px 0 0;font-size:14px;color:rgba(255,255,255,0.6)">Preparado para ${nombre}</p>
+    <h1 style="margin:0;font-size:28px;font-weight:800;color:#FFFFFF;letter-spacing:-0.02em">Solicitud recibida</h1>
+    <p style="margin:12px 0 0;font-size:14px;color:rgba(255,255,255,0.6)">Gracias, ${nombre}</p>
   </td></tr>
 
   <!-- Body -->
@@ -76,28 +41,7 @@ export async function POST(req: NextRequest) {
         Hola <strong style="color:#FFFFFF">${nombre}</strong>,
       </p>
       <p style="margin:12px 0 0;font-size:15px;color:#9CA3AF;line-height:1.7">
-        Gracias por tu interés. Aquí tienes nuestros precios de desarrollo web según el tipo de proyecto:
-      </p>
-    </div>
-
-    <!-- Rate -->
-    <div style="margin:0 40px 16px;text-align:center">
-      <p style="margin:0;font-size:12px;letter-spacing:0.1em;color:#D4AF37;text-transform:uppercase">Tarifa</p>
-      <p style="margin:4px 0 0;font-size:24px;font-weight:800;color:#FFFFFF">$${RATE} USD <span style="font-size:14px;font-weight:400;color:#9CA3AF">/ hora</span></p>
-    </div>
-
-    <!-- Pricing table -->
-    <div style="margin:0 40px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden">
-      ${pricingTable}
-    </div>
-
-    <!-- Disclaimer -->
-    <div style="padding:24px 40px 8px">
-      <p style="margin:0;font-size:12px;color:#6B7280;line-height:1.6;font-style:italic">
-        * Los precios son estimaciones basadas en la complejidad promedio de cada tipo de proyecto. El precio final se definirá tras evaluar los detalles específicos en una llamada.
-      </p>
-      <p style="margin:8px 0 0;font-size:13px;color:#D4AF37;line-height:1.6;font-weight:600">
-        Se requiere un adelanto del 50% para comenzar el proyecto.
+        Gracias por tu interés. Hemos recibido los detalles de tu proyecto y nos pondremos en contacto contigo para agendar una reunión donde revisaremos tu idea y definiremos juntos el alcance y el presupuesto a medida.
       </p>
     </div>
 
@@ -167,7 +111,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from: FROM,
         to: email,
-        subject: "Tu presupuesto web — Cachicamo Studios",
+        subject: "Recibimos tu solicitud — Cachicamo Studios",
         html: brochureHtml,
       }),
     ]);

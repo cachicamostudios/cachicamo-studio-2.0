@@ -11,5 +11,5 @@ export default async function Home({
   const dict = await getDictionary(lang);
   const prefix = lang === i18n.defaultLocale ? "" : `/${lang}`;
 
-  return <HomeClient dict={dict.home} prefix={prefix} />;
+  return <HomeClient dict={dict.home} prefix={prefix} lang={lang} />;
 }

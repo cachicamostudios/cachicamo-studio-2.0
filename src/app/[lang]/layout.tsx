@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import { i18n, type Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
-import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,7 +77,6 @@ export default async function LangLayout({
     <html lang={lang}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <LanguageSwitcher currentLocale={lang} />
         <SpeedInsights />
         <Analytics />
       </body>

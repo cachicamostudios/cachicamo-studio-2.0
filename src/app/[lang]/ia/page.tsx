@@ -3,6 +3,7 @@ import Link from "next/link";
 import IaSearch, { type IaProject } from "./IaSearch";
 import { getDictionary } from "@/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const SITE_URL = "https://cachicamo.studio";
 
@@ -47,6 +48,7 @@ export default async function IaPage({
         <Link href={prefix || "/"} className="web-back-link">
           {ia.back}
         </Link>
+        <LanguageSwitcher currentLocale={lang} />
       </div>
 
       {/* Hero */}

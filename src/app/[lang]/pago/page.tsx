@@ -25,7 +25,7 @@ export default async function PagoPage({
 
   return (
     <Suspense>
-      <PagoClient dict={dict.pago} home={prefix || "/"} />
+      <PagoClient dict={dict.pago} home={prefix || "/"} lang={lang} />
     </Suspense>
   );
 }

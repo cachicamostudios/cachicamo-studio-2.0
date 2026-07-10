@@ -3,15 +3,19 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getCalApi } from "@calcom/embed-react";
 import type { Dictionary } from "@/get-dictionary";
+import type { Locale } from "@/i18n-config";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 type HomeDict = Dictionary["home"];
 
 export default function HomeClient({
   dict,
   prefix,
+  lang,
 }: {
   dict: HomeDict;
   prefix: string;
+  lang: Locale;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -56,6 +60,7 @@ export default function HomeClient({
 
         {/* Nav desktop */}
         <nav className="nav-links" aria-label={dict.nav.ariaNav}>
+          <LanguageSwitcher currentLocale={lang} />
           {NAV_LINKS.map((l) => (
             <a key={l.href} href={l.href} className="nav-link">
               {l.label}
@@ -78,6 +83,7 @@ export default function HomeClient({
       {/* Nav mobile dropdown */}
       {menuOpen && (
         <div className="mobile-menu">
+          <LanguageSwitcher currentLocale={lang} className="mobile-lang" />
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}

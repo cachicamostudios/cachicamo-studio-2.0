@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getAllPosts } from "@/lib/posts";
 import { getDictionary } from "@/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const SITE_URL = "https://cachicamo.studio";
 
@@ -59,6 +60,7 @@ export default async function BlogPage({
           <span className="nav-brand">cachicamo studios</span>
         </Link>
         <nav className="nav-links" aria-label={nav.ariaNav}>
+          <LanguageSwitcher currentLocale={lang} />
           <Link href={`${prefix}/#servicios`} className="nav-link">{nav.services}</Link>
           <Link href={`${prefix}/#portfolio`} className="nav-link">{nav.portfolio}</Link>
           <Link href={`${prefix}/#nosotros`} className="nav-link">{nav.about}</Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
+import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
 export async function generateMetadata({
   params,
@@ -29,9 +30,12 @@ export default async function ConfirmacionPage({
       <div className="dot-grid" aria-hidden />
       <div className="site-wrapper" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem 1rem", textAlign: "center" }}>
 
-        <Link href={home} style={{ marginBottom: "2rem", fontSize: "12px", letterSpacing: "0.15em", color: "var(--gold)", textTransform: "uppercase" }}>
-          Cachicamo Studios
-        </Link>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", marginBottom: "2rem" }}>
+          <Link href={home} style={{ fontSize: "12px", letterSpacing: "0.15em", color: "var(--gold)", textTransform: "uppercase" }}>
+            Cachicamo Studios
+          </Link>
+          <LanguageSwitcher currentLocale={lang} />
+        </div>
 
         <div style={{
           background: "rgba(255,255,255,0.04)",

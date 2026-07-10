@@ -5,6 +5,7 @@ import QuoteForm from "./QuoteForm";
 import IaFloatButton from "./IaFloatButton";
 import { getDictionary } from "@/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 const SITE_URL = "https://cachicamo.studio";
 
@@ -48,6 +49,7 @@ export default async function WebPage({
         <Link href={prefix || "/"} className="web-back-link">
           {web.back}
         </Link>
+        <LanguageSwitcher currentLocale={lang} />
       </div>
 
       {/* Hero */}

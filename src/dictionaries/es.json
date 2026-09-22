@@ -38,11 +38,9 @@
         { "title": "Ñam!", "tag": "gastronomía · lifestyle · digital", "url": "https://ñam.com" },
         { "title": "3zkMC", "tag": "minecraft · create mod · technical minecraft", "url": "https://3zkmc.com" },
         { "title": "Susana Gomes", "tag": "fintech · neobancos · identidad", "url": "https://susanagomes.xyz" },
-        { "title": "Mary Carfora", "tag": "belleza · masterclass · branding", "url": "https://marycarfora.com" },
         { "title": "Erick Vega", "tag": "creative consulting · filmmaking · branding", "url": "https://erickvega.xyz" },
         { "title": "YouTube El Grit Cast", "tag": "comunidad · resiliencia · grit", "url": "https://youtube.com/@elgritcast" },
-        { "title": "YouTube 3zkMC", "tag": "minecraft · create mod · technical minecraft", "url": "https://youtube.com/@3zkMC" },
-        { "title": "YouTube Mary Carfora", "tag": "belleza · masterclass · tutoriales", "url": "https://www.youtube.com/channel/UCWE9iNYMBdpZ6Tvm0_BrRYg" }
+        { "title": "YouTube 3zkMC", "tag": "minecraft · create mod · technical minecraft", "url": "https://youtube.com/@3zkMC" }
       ]
     },
     "about": {
@@ -83,7 +81,6 @@
       { "name": "3zkMC", "url": "https://3zkmc.com", "displayUrl": "3zkmc.com", "description": "Comunidad Minecraft", "type": "personal", "image": "/previews/3zkmc.webp" },
       { "name": "Ñam!", "url": "https://xn--am-yja.com", "displayUrl": "ñam.com", "description": "Blog de gastronomía", "type": "branding", "image": "/previews/nam.webp" },
       { "name": "Susana Gomes", "url": "https://susanagomes.xyz", "displayUrl": "susanagomes.xyz", "description": "Fintech & neobancos", "type": "personal", "image": "/previews/susanagomes.webp" },
-      { "name": "Mary Carfora", "url": "https://marycarfora.com", "displayUrl": "marycarfora.com", "description": "Belleza, masterclass & branding", "type": "branding", "image": "/previews/marycarfora.webp" },
       { "name": "Erick Vega", "url": "https://erickvega.xyz", "displayUrl": "erickvega.xyz", "description": "Filmmaker & editor", "type": "branding", "image": "/previews/erickvega.webp" }
     ]
   },
